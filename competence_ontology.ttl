@@ -1,0 +1,1281 @@
+@prefix : <http://example.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.com> .
+
+<http://example.com> rdf:type owl:Ontology ;
+                      owl:imports <http://purl.org/nemo/gufo#/1.0.0> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/nemo/gufo#categorizes
+gufo:categorizes rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com#activates
+:activates rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf gufo:contributedToTrigger ;
+           rdfs:domain :CompetenceContext ;
+           rdfs:range :HumanCapability ;
+           rdfs:label "activates"@en .
+
+
+###  http://example.com#artifactParticipatedInHumanTask
+:artifactParticipatedInHumanTask rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:participatedIn ;
+                                 rdfs:domain :Artifact ;
+                                 rdfs:range :HumanTask .
+
+
+###  http://example.com#bringsAbout
+:bringsAbout rdf:type owl:ObjectProperty ;
+             rdfs:domain :TaskType ;
+             rdfs:range gufo:SituationType ;
+             rdfs:label "brings about"@en .
+
+
+###  http://example.com#capabilityContextContributedToTriggerCapability
+:capabilityContextContributedToTriggerCapability rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf gufo:contributedToTrigger ;
+                                                 rdfs:domain :CapabilityContext ;
+                                                 rdfs:range :Capability .
+
+
+###  http://example.com#capabilityInheresInObject
+:capabilityInheresInObject rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:inheresIn ;
+                           rdfs:domain :Capability ;
+                           rdfs:range :Object .
+
+
+###  http://example.com#capabilityManifestationBroughtAboutCapabilityOutcome
+:capabilityManifestationBroughtAboutCapabilityOutcome rdf:type owl:ObjectProperty ;
+                                                      rdfs:subPropertyOf gufo:broughtAbout ;
+                                                      rdfs:domain :CapabilityManifestation ;
+                                                      rdfs:range :CapabilityOutcome .
+
+
+###  http://example.com#capabilityManifestationManifestedInCapability
+:capabilityManifestationManifestedInCapability rdf:type owl:ObjectProperty ;
+                                               rdfs:subPropertyOf gufo:manifestedIn ;
+                                               rdfs:domain :CapabilityManifestation ;
+                                               rdfs:range :Capability .
+
+
+###  http://example.com#capabilityRequiringRoleHasField
+:capabilityRequiringRoleHasField rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :CapabilityRequiringRole ;
+                                 rdfs:range :Field .
+
+
+###  http://example.com#changes
+:changes rdf:type owl:ObjectProperty ;
+         rdfs:domain :CapabilityType ;
+         rdfs:range :CapabilityType ;
+         rdfs:label "changes"@en .
+
+
+###  http://example.com#characterizedBy
+:characterizedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ArtifactType ;
+                 rdfs:range :MomentType ;
+                 rdfs:label "characterized by"@en .
+
+
+###  http://example.com#competenceContextContributedToTriggerPersonalCompetence
+:competenceContextContributedToTriggerPersonalCompetence rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf gufo:contributedToTrigger ;
+                                                         rdfs:domain :CompetenceContext ;
+                                                         rdfs:range :PersonalCompetence .
+
+
+###  http://example.com#concerns
+:concerns rdf:type owl:ObjectProperty ;
+          rdfs:domain :TaskType ;
+          rdfs:range :ArtifactType ;
+          rdfs:label "concerns"@en .
+
+
+###  http://example.com#concerns_1
+:concerns_1 rdf:type owl:ObjectProperty ;
+            rdfs:domain :TaskType ;
+            rdfs:range :ResourceType ;
+            rdfs:label "concerns"@en .
+
+
+###  http://example.com#constitutes
+:constitutes rdf:type owl:ObjectProperty ;
+             rdfs:domain :HumanAspectType ;
+             rdfs:range :HumanAspectType ;
+             rdfs:label "constitutes"@en .
+
+
+###  http://example.com#contributesTo
+:contributesTo rdf:type owl:ObjectProperty ;
+               rdfs:domain :HumanQuality ;
+               rdfs:range :PersonalCompetence ;
+               rdfs:label "contributes to"@en .
+
+
+###  http://example.com#contributesTo_1
+:contributesTo_1 rdf:type owl:ObjectProperty ;
+                 rdfs:domain :HumanCharacteristic ;
+                 rdfs:range :PersonalCompetence ;
+                 rdfs:label "contributes to"@en .
+
+
+###  http://example.com#definedInTermsOf
+:definedInTermsOf rdf:type owl:ObjectProperty ;
+                  rdfs:domain :HumanCapabilityType ;
+                  rdfs:range :TaskType ;
+                  rdfs:label "defined in terms of"@en .
+
+
+###  http://example.com#dependsOn
+:dependsOn rdf:type owl:ObjectProperty ;
+           rdfs:domain :TaskType ;
+           rdfs:range :TaskType ;
+           rdfs:label "depends on"@en .
+
+
+###  http://example.com#dependsOn_1
+:dependsOn_1 rdf:type owl:ObjectProperty ;
+             rdfs:domain :ArtifactType ;
+             rdfs:range :ArtifactType ;
+             rdfs:label "depends on"@en .
+
+
+###  http://example.com#dependsOn_2
+:dependsOn_2 rdf:type owl:ObjectProperty ;
+             rdfs:domain :HumanAspectType ;
+             rdfs:range :HumanAspectType ;
+             rdfs:label "depends on"@en .
+
+
+###  http://example.com#dependsOn_3
+:dependsOn_3 rdf:type owl:ObjectProperty ;
+             rdfs:domain :CapabilityRequiringRole ;
+             rdfs:range :CapabilityRequiringRole ;
+             rdfs:label "depends on"@en .
+
+
+###  http://example.com#disable
+:disable rdf:type owl:ObjectProperty ;
+         rdfs:domain :CapabilityType ;
+         rdfs:range :CapabilityType ;
+         rdfs:label "disable"@en .
+
+
+###  http://example.com#emergesFrom
+:emergesFrom rdf:type owl:ObjectProperty ;
+             rdfs:domain :SocialCapability ;
+             rdfs:range :Capability ;
+             rdfs:label "emerges from"@en .
+
+
+###  http://example.com#emergesFrom_1
+:emergesFrom_1 rdf:type owl:ObjectProperty ;
+               rdfs:domain :Disposition ;
+               rdfs:range :Capability ;
+               rdfs:label "emerges from"@en .
+
+
+###  http://example.com#enables
+:enables rdf:type owl:ObjectProperty ;
+         rdfs:domain :HumanCapabilityType ;
+         rdfs:range :SituationType ;
+         rdfs:label "enables"@en .
+
+
+###  http://example.com#enables_1
+:enables_1 rdf:type owl:ObjectProperty ;
+           rdfs:domain :CapabilityType ;
+           rdfs:range :CapabilityType ;
+           rdfs:label "enables"@en .
+
+
+###  http://example.com#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:domain :Capability ;
+         rdfs:range :Capability ;
+         rdfs:label "has part"@en .
+
+
+###  http://example.com#humanCapabilityInheresInPhysicalAgent
+:humanCapabilityInheresInPhysicalAgent rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf gufo:inheresIn ;
+                                       rdfs:domain :HumanCapability ;
+                                       rdfs:range :PhysicalAgent .
+
+
+###  http://example.com#humanCapabilityInheresInProficiency
+:humanCapabilityInheresInProficiency rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf gufo:inheresIn ;
+                                     rdfs:domain :HumanCapability ;
+                                     rdfs:range :Proficiency .
+
+
+###  http://example.com#inheresIn
+:inheresIn rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf gufo:inheresIn ;
+           rdfs:domain :HumanCapability ;
+           rdfs:range :Person ;
+           rdfs:label "inheres in"@en .
+
+
+###  http://example.com#inheresIn_1
+:inheresIn_1 rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf gufo:inheresIn ;
+             rdfs:domain :HumanAspect ;
+             rdfs:range :Person ;
+             rdfs:label "inheres in"@en .
+
+
+###  http://example.com#isAdditionalTo
+:isAdditionalTo rdf:type owl:ObjectProperty ;
+                rdfs:domain :Capability ;
+                rdfs:range :Disposition ;
+                rdfs:label "is additional to"@en .
+
+
+###  http://example.com#isChangedBy
+:isChangedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Capability ;
+             rdfs:range :Capability ;
+             rdfs:label "is changed by"@en .
+
+
+###  http://example.com#isConnectedWith
+:isConnectedWith rdf:type owl:ObjectProperty ;
+                 rdfs:domain :System ;
+                 rdfs:range :ExternalEntity .
+
+
+###  http://example.com#isDefinedBy
+:isDefinedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :CapabilityRequiringRole ;
+             rdfs:range :HumanCapabilityType ;
+             rdfs:label "is defined by"@en .
+
+
+###  http://example.com#isDisabledBy
+:isDisabledBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Capability ;
+              rdfs:range :Capability ;
+              rdfs:label "is disabled by"@en .
+
+
+###  http://example.com#isEnabledBy
+:isEnabledBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Capability ;
+             rdfs:range :Capability ;
+             rdfs:label "is enabled by"@en .
+
+
+###  http://example.com#isManifestedBy
+:isManifestedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:manifestedIn ;
+                rdfs:domain :HumanCapability ;
+                rdfs:range :PersonalCompetence ;
+                rdfs:label "is manifested by"@en .
+
+
+###  http://example.com#isReciprocalTo
+:isReciprocalTo rdf:type owl:ObjectProperty ;
+                rdfs:domain :Capability ;
+                rdfs:range :Disposition ;
+                rdfs:label "is reciprocal to"@en .
+
+
+###  http://example.com#objectIsComponentOfObject
+:objectIsComponentOfObject rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:isComponentOf ;
+                           rdfs:domain :Object ;
+                           rdfs:range :Object .
+
+
+###  http://example.com#performs
+:performs rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf gufo:participatedIn ;
+          rdfs:domain :Person ;
+          rdfs:range :HumanTask ;
+          rdfs:label "performs"@en .
+
+
+###  http://example.com#personalCompetenceHasAttitude
+:personalCompetenceHasAttitude rdf:type owl:ObjectProperty ;
+                               rdfs:domain :PersonalCompetence ;
+                               rdfs:range :Attitude .
+
+
+###  http://example.com#personalCompetenceHasHumanAspect
+:personalCompetenceHasHumanAspect rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :PersonalCompetence ;
+                                  rdfs:range :HumanAspect .
+
+
+###  http://example.com#personalCompetenceHasHumanCharacteristic
+:personalCompetenceHasHumanCharacteristic rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :PersonalCompetence ;
+                                          rdfs:range :HumanCharacteristic .
+
+
+###  http://example.com#personalCompetenceHasKnowledge
+:personalCompetenceHasKnowledge rdf:type owl:ObjectProperty ;
+                                rdfs:domain :PersonalCompetence ;
+                                rdfs:range :Knowledge .
+
+
+###  http://example.com#personalCompetenceHasPersonalCompetence
+:personalCompetenceHasPersonalCompetence rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :PersonalCompetence ;
+                                         rdfs:range :PersonalCompetence .
+
+
+###  http://example.com#personalCompetenceHasSkill
+:personalCompetenceHasSkill rdf:type owl:ObjectProperty ;
+                            rdfs:domain :PersonalCompetence ;
+                            rdfs:range :Skill .
+
+
+###  http://example.com#provedBy
+:provedBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :HumanAspect ;
+          rdfs:range :Evidence ;
+          rdfs:label "proved by"@en .
+
+
+###  http://example.com#resourceParticipatedInHumanTask
+:resourceParticipatedInHumanTask rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:participatedIn ;
+                                 rdfs:domain :Resource ;
+                                 rdfs:range :HumanTask .
+
+
+###  http://example.com#resultsFrom
+:resultsFrom rdf:type owl:ObjectProperty ;
+             rdfs:domain :SocialCapability ;
+             rdfs:range :Capability ;
+             rdfs:label "results from"@en .
+
+
+###  http://example.com#resultsFrom_1
+:resultsFrom_1 rdf:type owl:ObjectProperty ;
+               rdfs:domain :Capability ;
+               rdfs:range :Disposition ;
+               rdfs:label "results from"@en .
+
+
+###  http://example.com#socialAgentIsComponentOfAgent
+:socialAgentIsComponentOfAgent rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf gufo:isComponentOf ;
+                               rdfs:domain :SocialAgent ;
+                               rdfs:range :Agent .
+
+
+###  http://example.com#socialCapabilityInheresInSocialAgent
+:socialCapabilityInheresInSocialAgent rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf gufo:inheresIn ;
+                                      rdfs:domain :SocialCapability ;
+                                      rdfs:range :SocialAgent .
+
+
+###  http://example.com#specializes
+:specializes rdf:type owl:ObjectProperty ;
+             rdfs:domain :ArtifactType ;
+             rdfs:range :ArtifactType ;
+             rdfs:label "specializes"@en .
+
+
+###  http://example.com#specializes_1
+:specializes_1 rdf:type owl:ObjectProperty ;
+               rdfs:domain :HumanAspectType ;
+               rdfs:range :HumanAspectType ;
+               rdfs:label "specializes"@en .
+
+
+###  http://example.com#specializes_2
+:specializes_2 rdf:type owl:ObjectProperty ;
+               rdfs:domain :TaskType ;
+               rdfs:range :TaskType ;
+               rdfs:label "specializes"@en .
+
+
+###  http://example.com#specializes_3
+:specializes_3 rdf:type owl:ObjectProperty ;
+               rdfs:domain :CapabilityRequiringRole ;
+               rdfs:range :CapabilityRequiringRole ;
+               rdfs:label "specializes"@en .
+
+
+###  http://example.com#standsIn
+:standsIn rdf:type owl:ObjectProperty ;
+          rdfs:domain :CompetenceContext ;
+          rdfs:range :Resource ;
+          rdfs:label "standsIn"@en .
+
+
+###  http://example.com#standsIn_1
+:standsIn_1 rdf:type owl:ObjectProperty ;
+            rdfs:domain :CompetenceContext ;
+            rdfs:range :TaskInput ;
+            rdfs:label "standsIn"@en .
+
+
+###  http://example.com#systemCapabilityInheresInSystem
+:systemCapabilityInheresInSystem rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:inheresIn ;
+                                 rdfs:domain :SystemCapability ;
+                                 rdfs:range :System .
+
+
+###  http://example.com#taskOutcomeBroughtAboutHumanTask
+:taskOutcomeBroughtAboutHumanTask rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf gufo:broughtAbout ;
+                                  rdfs:domain :TaskOutcome ;
+                                  rdfs:range :HumanTask .
+
+
+###  http://example.com#taskOutcomeHasTaskOutput
+:taskOutcomeHasTaskOutput rdf:type owl:ObjectProperty ;
+                          rdfs:domain :TaskOutcome ;
+                          rdfs:range :TaskOutput .
+
+
+###  http://example.com#taskOutputWasCreatedInHumanTask
+:taskOutputWasCreatedInHumanTask rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:wasCreatedIn ;
+                                 rdfs:domain :TaskOutput ;
+                                 rdfs:range :HumanTask .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com#Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf :Object .
+
+
+###  http://example.com#Artifact
+:Artifact rdf:type owl:Class ;
+          rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#ArtifactType
+:ArtifactType rdf:type owl:Class ;
+              rdfs:subClassOf :SubstantialType .
+
+
+###  http://example.com#Attitude
+:Attitude rdf:type owl:Class ;
+          rdfs:subClassOf :HumanAspect .
+
+
+###  http://example.com#AttitudeType
+:AttitudeType rdf:type owl:Class ;
+              rdfs:subClassOf :HumanAspectType .
+
+
+###  http://example.com#Capability
+:Capability rdf:type owl:Class ;
+            rdfs:subClassOf :Disposition ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf :capabilityManifestationManifestedInCapability
+                                             ] ;
+                              owl:someValuesFrom :CapabilityManifestation
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :capabilityInheresInObject ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Object
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf :capabilityContextContributedToTriggerCapability
+                                             ] ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CapabilityContext
+                            ] .
+
+
+###  http://example.com#CapabilityContext
+:CapabilityContext rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:Situation ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :capabilityContextContributedToTriggerCapability ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :Capability
+                                   ] .
+
+
+###  http://example.com#CapabilityManifestation
+:CapabilityManifestation rdf:type owl:Class ;
+                         rdfs:subClassOf gufo:Event ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :capabilityManifestationBroughtAboutCapabilityOutcome ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :CapabilityOutcome
+                                         ] .
+
+
+###  http://example.com#CapabilityOutcome
+:CapabilityOutcome rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:Situation ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf :capabilityManifestationBroughtAboutCapabilityOutcome
+                                                    ] ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :CapabilityManifestation
+                                   ] .
+
+
+###  http://example.com#CapabilityRequiringRole
+:CapabilityRequiringRole rdf:type owl:Class ;
+                         rdfs:subClassOf gufo:Role .
+
+
+###  http://example.com#CapabilityType
+:CapabilityType rdf:type owl:Class ;
+                rdfs:subClassOf :DispositionType .
+
+
+###  http://example.com#CompetenceContext
+:CompetenceContext rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:Situation ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :competenceContextContributedToTriggerPersonalCompetence ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :PersonalCompetence
+                                   ] .
+
+
+###  http://example.com#CompetenceType
+:CompetenceType rdf:type owl:Class ;
+                rdfs:subClassOf :HumanCapabilityType .
+
+
+###  http://example.com#Disposition
+:Disposition rdf:type owl:Class ;
+             rdfs:subClassOf gufo:IntrinsicMode .
+
+
+###  http://example.com#DispositionType
+:DispositionType rdf:type owl:Class ;
+                 rdfs:subClassOf :MomentType .
+
+
+###  http://example.com#Evidence
+:Evidence rdf:type owl:Class ;
+          rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#ExternalEntity
+:ExternalEntity rdf:type owl:Class ;
+                rdfs:subClassOf :Object .
+
+
+###  http://example.com#Field
+:Field rdf:type owl:Class ;
+       rdfs:subClassOf gufo:ConcreteIndividualType .
+
+
+###  http://example.com#HumanAspect
+:HumanAspect rdf:type owl:Class ;
+             rdfs:subClassOf gufo:IntrinsicMode ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :inheresIn_1 ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Person
+                             ] .
+
+
+###  http://example.com#HumanAspectPhase
+:HumanAspectPhase rdf:type owl:Class ;
+                  rdfs:subClassOf :HumanAspectType ,
+                                  gufo:Phase .
+
+
+###  http://example.com#HumanAspectType
+:HumanAspectType rdf:type owl:Class ;
+                 rdfs:subClassOf :MomentType .
+
+
+###  http://example.com#HumanCapability
+:HumanCapability rdf:type owl:Class ;
+                 rdfs:subClassOf :Capability ,
+                                 :HumanAspect ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :humanCapabilityInheresInPhysicalAgent ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :PhysicalAgent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :humanCapabilityInheresInProficiency ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Proficiency
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :inheresIn ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Person
+                                 ] .
+
+
+###  http://example.com#HumanCapabilityType
+:HumanCapabilityType rdf:type owl:Class ;
+                     rdfs:subClassOf :CapabilityType ,
+                                     :DispositionType ,
+                                     :HumanAspectType .
+
+
+###  http://example.com#HumanCharacteristic
+:HumanCharacteristic rdf:type owl:Class ;
+                     rdfs:subClassOf :HumanAspect .
+
+
+###  http://example.com#HumanQuality
+:HumanQuality rdf:type owl:Class ;
+              rdfs:subClassOf :HumanCharacteristic .
+
+
+###  http://example.com#HumanTask
+:HumanTask rdf:type owl:Class ;
+           rdfs:subClassOf gufo:Event ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf :artifactParticipatedInHumanTask
+                                            ] ;
+                             owl:someValuesFrom :Artifact
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf :performs
+                                            ] ;
+                             owl:someValuesFrom :Person
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf :resourceParticipatedInHumanTask
+                                            ] ;
+                             owl:someValuesFrom :Resource
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf :taskOutcomeBroughtAboutHumanTask
+                                            ] ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TaskOutcome
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf :taskOutputWasCreatedInHumanTask
+                                            ] ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TaskOutput
+                           ] .
+
+
+###  http://example.com#HumanTrait
+:HumanTrait rdf:type owl:Class ;
+            rdfs:subClassOf :HumanCharacteristic .
+
+
+###  http://example.com#Knowledge
+:Knowledge rdf:type owl:Class ;
+           rdfs:subClassOf :HumanAspect .
+
+
+###  http://example.com#KnowledgeType
+:KnowledgeType rdf:type owl:Class ;
+               rdfs:subClassOf :HumanAspectType .
+
+
+###  http://example.com#MomentType
+:MomentType rdf:type owl:Class ;
+            rdfs:subClassOf gufo:EndurantType .
+
+
+###  http://example.com#Object
+:Object rdf:type owl:Class ;
+        rdfs:subClassOf gufo:FunctionalComplex ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty [ owl:inverseOf :capabilityInheresInObject
+                                         ] ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Capability
+                        ] .
+
+
+###  http://example.com#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :Agent ,
+                        :PhysicalAgent ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty [ owl:inverseOf :inheresIn
+                                         ] ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :HumanCapability
+                        ] .
+
+
+###  http://example.com#PersonalCompetence
+:PersonalCompetence rdf:type owl:Class ;
+                    rdfs:subClassOf :HumanCapability ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty [ owl:inverseOf :competenceContextContributedToTriggerPersonalCompetence
+                                                     ] ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :CompetenceContext
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty [ owl:inverseOf :isManifestedBy
+                                                     ] ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :HumanCapability
+                                    ] .
+
+
+###  http://example.com#PhysicalAgent
+:PhysicalAgent rdf:type owl:Class ;
+               rdfs:subClassOf :Agent ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty [ owl:inverseOf :humanCapabilityInheresInPhysicalAgent
+                                                ] ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :HumanCapability
+                               ] .
+
+
+###  http://example.com#Proficiency
+:Proficiency rdf:type owl:Class ;
+             rdfs:subClassOf gufo:IntrinsicMode ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf :humanCapabilityInheresInProficiency
+                                              ] ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :HumanCapability
+                             ] .
+
+
+###  http://example.com#Resource
+:Resource rdf:type owl:Class ;
+          rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#ResourceType
+:ResourceType rdf:type owl:Class ;
+              rdfs:subClassOf :SubstantialType .
+
+
+###  http://example.com#SituationType
+:SituationType rdf:type owl:Class ;
+               rdfs:subClassOf gufo:ConcreteIndividualType .
+
+
+###  http://example.com#Skill
+:Skill rdf:type owl:Class ;
+       rdfs:subClassOf :HumanCapability .
+
+
+###  http://example.com#SkillType
+:SkillType rdf:type owl:Class ;
+           rdfs:subClassOf :HumanCapabilityType .
+
+
+###  http://example.com#SocialAgent
+:SocialAgent rdf:type owl:Class ;
+             rdfs:subClassOf :Agent ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf :socialCapabilityInheresInSocialAgent
+                                              ] ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :SocialCapability
+                             ] .
+
+
+###  http://example.com#SocialCapability
+:SocialCapability rdf:type owl:Class ;
+                  rdfs:subClassOf :Capability ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :socialCapabilityInheresInSocialAgent ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :SocialAgent
+                                  ] .
+
+
+###  http://example.com#SubstantialType
+:SubstantialType rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:EndurantType .
+
+
+###  http://example.com#System
+:System rdf:type owl:Class ;
+        rdfs:subClassOf :Object ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty [ owl:inverseOf :systemCapabilityInheresInSystem
+                                         ] ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :SystemCapability
+                        ] .
+
+
+###  http://example.com#SystemCapability
+:SystemCapability rdf:type owl:Class ;
+                  rdfs:subClassOf :Capability ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :systemCapabilityInheresInSystem ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :System
+                                  ] .
+
+
+###  http://example.com#TaskInput
+:TaskInput rdf:type owl:Class ;
+           rdfs:subClassOf :Artifact .
+
+
+###  http://example.com#TaskOutcome
+:TaskOutcome rdf:type owl:Class ;
+             rdfs:subClassOf gufo:Situation ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :taskOutcomeBroughtAboutHumanTask ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :HumanTask
+                             ] .
+
+
+###  http://example.com#TaskOutput
+:TaskOutput rdf:type owl:Class ;
+            rdfs:subClassOf :Artifact ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :taskOutputWasCreatedInHumanTask ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :HumanTask
+                            ] .
+
+
+###  http://example.com#TaskType
+:TaskType rdf:type owl:Class ;
+          rdfs:subClassOf gufo:EventType .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.com#Agent
+:Agent rdf:type owl:NamedIndividual ,
+                gufo:Category .
+
+
+###  http://example.com#Artifact
+:Artifact rdf:type owl:NamedIndividual ,
+                   gufo:Category .
+
+
+###  http://example.com#ArtifactType
+:ArtifactType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Attitude
+:Attitude rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://example.com#AttitudeType
+:AttitudeType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Capability
+:Capability rdf:type owl:NamedIndividual ,
+                     gufo:Category .
+
+
+###  http://example.com#CapabilityContext
+:CapabilityContext rdf:type owl:NamedIndividual ,
+                            gufo:SituationType .
+
+
+###  http://example.com#CapabilityManifestation
+:CapabilityManifestation rdf:type owl:NamedIndividual ,
+                                  gufo:EventType .
+
+
+###  http://example.com#CapabilityOutcome
+:CapabilityOutcome rdf:type owl:NamedIndividual ,
+                            gufo:SituationType .
+
+
+###  http://example.com#CapabilityRequiringRole
+:CapabilityRequiringRole rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#CapabilityType
+:CapabilityType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#CompetenceContext
+:CompetenceContext rdf:type owl:NamedIndividual ,
+                            gufo:SituationType .
+
+
+###  http://example.com#CompetenceType
+:CompetenceType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Disposition
+:Disposition rdf:type owl:NamedIndividual ,
+                      gufo:Category .
+
+
+###  http://example.com#DispositionType
+:DispositionType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Evidence
+:Evidence rdf:type owl:NamedIndividual ,
+                   gufo:Category .
+
+
+###  http://example.com#ExternalEntity
+:ExternalEntity rdf:type owl:NamedIndividual ,
+                         gufo:RoleMixin .
+
+
+###  http://example.com#Field
+:Field rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#HumanAspect
+:HumanAspect rdf:type owl:NamedIndividual ,
+                      gufo:Category .
+
+
+###  http://example.com#HumanAspectPhase
+:HumanAspectPhase rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#HumanAspectType
+:HumanAspectType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#HumanCapability
+:HumanCapability rdf:type owl:NamedIndividual ,
+                          gufo:Kind .
+
+
+###  http://example.com#HumanCapabilityType
+:HumanCapabilityType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#HumanCharacteristic
+:HumanCharacteristic rdf:type owl:NamedIndividual ,
+                              gufo:Category .
+
+
+###  http://example.com#HumanQuality
+:HumanQuality rdf:type owl:NamedIndividual ,
+                       gufo:Category .
+
+
+###  http://example.com#HumanTask
+:HumanTask rdf:type owl:NamedIndividual ,
+                    gufo:EventType .
+
+
+###  http://example.com#HumanTrait
+:HumanTrait rdf:type owl:NamedIndividual ,
+                     gufo:Category .
+
+
+###  http://example.com#Knowledge
+:Knowledge rdf:type owl:NamedIndividual ,
+                    gufo:Kind .
+
+
+###  http://example.com#KnowledgeType
+:KnowledgeType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#MomentType
+:MomentType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Object
+:Object rdf:type owl:NamedIndividual ,
+                 gufo:Category .
+
+
+###  http://example.com#PerdurantType
+:PerdurantType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Person
+:Person rdf:type owl:NamedIndividual ,
+                 gufo:Kind .
+
+
+###  http://example.com#PersonalCompetence
+:PersonalCompetence rdf:type owl:NamedIndividual ,
+                             gufo:SubKind .
+
+
+###  http://example.com#Phase
+:Phase rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#PhysicalAgent
+:PhysicalAgent rdf:type owl:NamedIndividual ,
+                        gufo:Category .
+
+
+###  http://example.com#Proficiency
+:Proficiency rdf:type owl:NamedIndividual ,
+                      gufo:Kind .
+
+
+###  http://example.com#Resource
+:Resource rdf:type owl:NamedIndividual ,
+                   gufo:RoleMixin .
+
+
+###  http://example.com#ResourceType
+:ResourceType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Role
+:Role rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#SituationType
+:SituationType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#Skill
+:Skill rdf:type owl:NamedIndividual ,
+                gufo:SubKind .
+
+
+###  http://example.com#SkillType
+:SkillType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#SocialAgent
+:SocialAgent rdf:type owl:NamedIndividual ,
+                      gufo:Category .
+
+
+###  http://example.com#SocialCapability
+:SocialCapability rdf:type owl:NamedIndividual ,
+                           gufo:Kind .
+
+
+###  http://example.com#SubstantialType
+:SubstantialType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#System
+:System rdf:type owl:NamedIndividual ,
+                 gufo:Category .
+
+
+###  http://example.com#SystemCapability
+:SystemCapability rdf:type owl:NamedIndividual ,
+                           gufo:Category .
+
+
+###  http://example.com#TaskInput
+:TaskInput rdf:type owl:NamedIndividual ,
+                    gufo:RoleMixin .
+
+
+###  http://example.com#TaskOutcome
+:TaskOutcome rdf:type owl:NamedIndividual ,
+                      gufo:SituationType .
+
+
+###  http://example.com#TaskOutput
+:TaskOutput rdf:type owl:NamedIndividual ,
+                     gufo:RoleMixin .
+
+
+###  http://example.com#TaskType
+:TaskType rdf:type owl:NamedIndividual .
+
+
+###  http://example.com#isConnectedWith
+:isConnectedWith rdf:type owl:NamedIndividual ,
+                          gufo:MaterialRelationshipType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Agent rdfs:label "Agent"@en .
+
+
+:Artifact rdfs:label "Artifact"@en .
+
+
+:ArtifactType rdfs:label "Artifact Type"@en ;
+              gufo:categorizes :Artifact .
+
+
+:Attitude rdfs:label "Attitude"@en .
+
+
+:AttitudeType rdfs:label "Attitude Type"@en .
+
+
+:Capability rdfs:label "Capability"@en .
+
+
+:CapabilityContext rdfs:label "Capability Context"@en .
+
+
+:CapabilityManifestation rdfs:label "Capability Manifestation"@en .
+
+
+:CapabilityOutcome rdfs:label "Capability Outcome"@en .
+
+
+:CapabilityRequiringRole gufo:categorizes :Person ;
+                         rdfs:label "Capability-requiring Role"@en .
+
+
+:CapabilityType rdfs:label "Capability Type"@en ;
+                gufo:categorizes :Capability .
+
+
+:CompetenceContext rdfs:label "Competence Context"@en .
+
+
+:CompetenceType gufo:categorizes :PersonalCompetence ;
+                rdfs:label "Competence Type"@en .
+
+
+:Disposition rdfs:label "Disposition"@en .
+
+
+:DispositionType rdfs:label "Disposition Type"@en .
+
+
+:Evidence rdfs:label "Evidence"@en .
+
+
+:ExternalEntity rdfs:label "External Entity"@en .
+
+
+:Field rdfs:label "Field"@en .
+
+
+:HumanAspect rdfs:label "Human Aspect"@en .
+
+
+:HumanAspectPhase rdfs:label "Human Aspect Phase"@en ;
+                  gufo:categorizes :HumanAspect .
+
+
+:HumanAspectType gufo:categorizes :HumanAspect ;
+                 rdfs:label "Human Aspect Type"@en .
+
+
+:HumanCapability rdfs:label "Human Capability"@en .
+
+
+:HumanCapabilityType gufo:categorizes :HumanCapability ;
+                     rdfs:label "Human Capability Type"@en .
+
+
+:HumanCharacteristic rdfs:label "Human Characteristic"@en .
+
+
+:HumanQuality rdfs:label "Human Quality"@en .
+
+
+:HumanTask rdfs:label "Human Task"@en .
+
+
+:HumanTrait rdfs:label "Human Trait"@en .
+
+
+:Knowledge rdfs:label "Knowledge"@en .
+
+
+:KnowledgeType rdfs:label "Knowledge Type"@en .
+
+
+:MomentType rdfs:label "Moment Type"@en .
+
+
+:Object rdfs:label "Object"@en .
+
+
+:Person rdfs:label "Person"@en .
+
+
+:PersonalCompetence rdfs:label "Personal Competence"@en .
+
+
+:PhysicalAgent rdfs:label "Physical Agent"@en .
+
+
+:Proficiency rdfs:label "Proficiency"@en .
+
+
+:Resource rdfs:label "Resource"@en .
+
+
+:ResourceType gufo:categorizes :Resource ;
+              rdfs:label "ResourceType"@en .
+
+
+:SituationType rdfs:label "Situation Type"@en .
+
+
+:Skill rdfs:label "Skill"@en .
+
+
+:SkillType gufo:categorizes :Skill ;
+           rdfs:label "Skill Type"@en .
+
+
+:SocialAgent rdfs:label "Social Agent"@en .
+
+
+:SocialCapability rdfs:label "Social Capability"@en .
+
+
+:SubstantialType rdfs:label "Substantial Type"@en .
+
+
+:System rdfs:label "System"@en .
+
+
+:SystemCapability rdfs:label "System Capability"@en .
+
+
+:TaskInput rdfs:label "Task Input"@en .
+
+
+:TaskOutcome rdfs:label "Task Outcome"@en .
+
+
+:TaskOutput rdfs:label "Task Output"@en .
+
+
+:TaskType gufo:categorizes :HumanTask ;
+          rdfs:label "Task Type"@en .
+
+
+:isConnectedWith rdfs:label "is connected with"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
