@@ -4,25 +4,30 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfs: <http://purl.org/vocommons/voaf#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @base <http://purl.org/coreo> .
 
 <http://purl.org/coreo> rdf:type owl:Ontology ;
                          owl:versionIRI <http://purl.org/coreo/1.0.0> ;
                          owl:imports <http://purl.org/dc/terms/> ,
-                                     <http://purl.org/nemo/gufo#/1.0.0> ;
+                                     <http://purl.org/nemo/gufo#/1.0.0> ,
+                                     vann: ,
+                                     voaf: ;
                          <http://purl.org/dc/elements/1.1/creator> """\"Calhau, Rodrigo F.\",
 \"Almeida, João Paulo A.\",
 \"Guizzardi, Giancarlo\";"""@en ;
                          <http://purl.org/dc/elements/1.1/title> "Core-o: Competence Reference Ontology"@en ;
                          <http://purl.org/dc/terms/bibliographicCitation> "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
                          <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
+                         <http://purl.org/dc/terms/description> "An ontology to describe competences and human capabilities"@en ;
                          <http://purl.org/dc/terms/issued> "2023-05-08"^^xsd:date ;
                          <http://purl.org/dc/terms/license> "<https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
                          <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
                          <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"@en ;
-                         <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
-                         <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/coreo"@en ;
+                         vann:preferredNamespacePrefix "coreo"@en ;
+                         vann:preferredNamespaceUri "http://purl.org/coreo"@en ;
                          rdfs:comment """Core-O is a well-founded competence reference ontology that accounts for competence-related elements such as knowledge, attitudes, and skills; also countenance their performance---related to tasks, their context, and outcomes---as well as their evolution over time (proficiency). This ontology is based on the Unified Foundational Ontology (Guizzardi, 2005), more specifically using gUFO (gentle UFO), a UFO-based lightweight ontology.
 The ontology was based on these works: (CALHAU et al., 2021) and (CALHAU et al., 2023)
 
@@ -42,11 +47,16 @@ This work is distributed under Creative Commons Attribution License CC BY 4.0 <h
 
 
 For the source repository, see: <https://github.com/core-o/ontology>"""@en ;
-                         owl:versionInfo "1.0.0"@en .
+                         owl:versionInfo "1.0.0"@en ;
+                         <https://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://purl.org/vocommons/voaf#Vocabulary"@en .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/terms/issued
 <http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
@@ -58,6 +68,14 @@ For the source repository, see: <https://github.com/core-o/ontology>"""@en ;
 
 ###  http://purl.org/nemo/gufo#categorizes
 gufo:categorizes rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  https://www.w3.org/1999/02/22-rdf-syntax-ns#type
+<https://www.w3.org/1999/02/22-rdf-syntax-ns#type> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
