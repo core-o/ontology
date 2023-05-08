@@ -5,10 +5,20 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://example.com> .
+@base <http://purl.org/coreo> .
 
-<http://example.com> rdf:type owl:Ontology ;
-                      owl:imports <http://purl.org/nemo/gufo#/1.0.0> .
+<http://purl.org/coreo> rdf:type owl:Ontology ;
+                         owl:imports <http://purl.org/nemo/gufo#/1.0.0> ;
+                         <http://purl.org/dc/elements/1.1/creator> """\"Calhau, Rodrigo F.\",
+\"Almeida, João Paulo A.\",
+\"Guizzardi, Giancarlo\";"""@en ;
+                         <http://purl.org/dc/elements/1.1/title> "Core-o: Competence Reference Ontology"@en ;
+                         <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
+                         <http://purl.org/dc/terms/license> "<https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                         <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
+                         <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
+                         <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/coreo"@en ;
+                         owl:versionInfo "1.0.0"@en .
 
 #################################################################
 #    Annotation properties
@@ -22,7 +32,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://example.com#activates
+###  http://purl.org/coreo#activates
 :activates rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf gufo:contributedToTrigger ;
            rdfs:domain :CompetenceContext ;
@@ -30,202 +40,202 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
            rdfs:label "activates"@en .
 
 
-###  http://example.com#artifactParticipatedInHumanTask
+###  http://purl.org/coreo#artifactParticipatedInHumanTask
 :artifactParticipatedInHumanTask rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf gufo:participatedIn ;
                                  rdfs:domain :Artifact ;
                                  rdfs:range :HumanTask .
 
 
-###  http://example.com#bringsAbout
+###  http://purl.org/coreo#bringsAbout
 :bringsAbout rdf:type owl:ObjectProperty ;
              rdfs:domain :TaskType ;
              rdfs:range gufo:SituationType ;
              rdfs:label "brings about"@en .
 
 
-###  http://example.com#capabilityContextContributedToTriggerCapability
+###  http://purl.org/coreo#capabilityContextContributedToTriggerCapability
 :capabilityContextContributedToTriggerCapability rdf:type owl:ObjectProperty ;
                                                  rdfs:subPropertyOf gufo:contributedToTrigger ;
                                                  rdfs:domain :CapabilityContext ;
                                                  rdfs:range :Capability .
 
 
-###  http://example.com#capabilityInheresInObject
+###  http://purl.org/coreo#capabilityInheresInObject
 :capabilityInheresInObject rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf gufo:inheresIn ;
                            rdfs:domain :Capability ;
                            rdfs:range :Object .
 
 
-###  http://example.com#capabilityManifestationBroughtAboutCapabilityOutcome
+###  http://purl.org/coreo#capabilityManifestationBroughtAboutCapabilityOutcome
 :capabilityManifestationBroughtAboutCapabilityOutcome rdf:type owl:ObjectProperty ;
                                                       rdfs:subPropertyOf gufo:broughtAbout ;
                                                       rdfs:domain :CapabilityManifestation ;
                                                       rdfs:range :CapabilityOutcome .
 
 
-###  http://example.com#capabilityManifestationManifestedInCapability
+###  http://purl.org/coreo#capabilityManifestationManifestedInCapability
 :capabilityManifestationManifestedInCapability rdf:type owl:ObjectProperty ;
                                                rdfs:subPropertyOf gufo:manifestedIn ;
                                                rdfs:domain :CapabilityManifestation ;
                                                rdfs:range :Capability .
 
 
-###  http://example.com#capabilityRequiringRoleHasField
+###  http://purl.org/coreo#capabilityRequiringRoleHasField
 :capabilityRequiringRoleHasField rdf:type owl:ObjectProperty ;
                                  rdfs:domain :CapabilityRequiringRole ;
                                  rdfs:range :Field .
 
 
-###  http://example.com#changes
+###  http://purl.org/coreo#changes
 :changes rdf:type owl:ObjectProperty ;
          rdfs:domain :CapabilityType ;
          rdfs:range :CapabilityType ;
          rdfs:label "changes"@en .
 
 
-###  http://example.com#characterizedBy
+###  http://purl.org/coreo#characterizedBy
 :characterizedBy rdf:type owl:ObjectProperty ;
                  rdfs:domain :ArtifactType ;
                  rdfs:range :MomentType ;
                  rdfs:label "characterized by"@en .
 
 
-###  http://example.com#competenceContextContributedToTriggerPersonalCompetence
+###  http://purl.org/coreo#competenceContextContributedToTriggerPersonalCompetence
 :competenceContextContributedToTriggerPersonalCompetence rdf:type owl:ObjectProperty ;
                                                          rdfs:subPropertyOf gufo:contributedToTrigger ;
                                                          rdfs:domain :CompetenceContext ;
                                                          rdfs:range :PersonalCompetence .
 
 
-###  http://example.com#concerns
+###  http://purl.org/coreo#concerns
 :concerns rdf:type owl:ObjectProperty ;
           rdfs:domain :TaskType ;
           rdfs:range :ArtifactType ;
           rdfs:label "concerns"@en .
 
 
-###  http://example.com#concerns_1
+###  http://purl.org/coreo#concerns_1
 :concerns_1 rdf:type owl:ObjectProperty ;
             rdfs:domain :TaskType ;
             rdfs:range :ResourceType ;
             rdfs:label "concerns"@en .
 
 
-###  http://example.com#constitutes
+###  http://purl.org/coreo#constitutes
 :constitutes rdf:type owl:ObjectProperty ;
              rdfs:domain :HumanAspectType ;
              rdfs:range :HumanAspectType ;
              rdfs:label "constitutes"@en .
 
 
-###  http://example.com#contributesTo
+###  http://purl.org/coreo#contributesTo
 :contributesTo rdf:type owl:ObjectProperty ;
                rdfs:domain :HumanQuality ;
                rdfs:range :PersonalCompetence ;
                rdfs:label "contributes to"@en .
 
 
-###  http://example.com#contributesTo_1
+###  http://purl.org/coreo#contributesTo_1
 :contributesTo_1 rdf:type owl:ObjectProperty ;
                  rdfs:domain :HumanCharacteristic ;
                  rdfs:range :PersonalCompetence ;
                  rdfs:label "contributes to"@en .
 
 
-###  http://example.com#definedInTermsOf
+###  http://purl.org/coreo#definedInTermsOf
 :definedInTermsOf rdf:type owl:ObjectProperty ;
                   rdfs:domain :HumanCapabilityType ;
                   rdfs:range :TaskType ;
                   rdfs:label "defined in terms of"@en .
 
 
-###  http://example.com#dependsOn
+###  http://purl.org/coreo#dependsOn
 :dependsOn rdf:type owl:ObjectProperty ;
            rdfs:domain :TaskType ;
            rdfs:range :TaskType ;
            rdfs:label "depends on"@en .
 
 
-###  http://example.com#dependsOn_1
+###  http://purl.org/coreo#dependsOn_1
 :dependsOn_1 rdf:type owl:ObjectProperty ;
              rdfs:domain :ArtifactType ;
              rdfs:range :ArtifactType ;
              rdfs:label "depends on"@en .
 
 
-###  http://example.com#dependsOn_2
+###  http://purl.org/coreo#dependsOn_2
 :dependsOn_2 rdf:type owl:ObjectProperty ;
              rdfs:domain :HumanAspectType ;
              rdfs:range :HumanAspectType ;
              rdfs:label "depends on"@en .
 
 
-###  http://example.com#dependsOn_3
+###  http://purl.org/coreo#dependsOn_3
 :dependsOn_3 rdf:type owl:ObjectProperty ;
              rdfs:domain :CapabilityRequiringRole ;
              rdfs:range :CapabilityRequiringRole ;
              rdfs:label "depends on"@en .
 
 
-###  http://example.com#disable
+###  http://purl.org/coreo#disable
 :disable rdf:type owl:ObjectProperty ;
          rdfs:domain :CapabilityType ;
          rdfs:range :CapabilityType ;
          rdfs:label "disable"@en .
 
 
-###  http://example.com#emergesFrom
+###  http://purl.org/coreo#emergesFrom
 :emergesFrom rdf:type owl:ObjectProperty ;
              rdfs:domain :SocialCapability ;
              rdfs:range :Capability ;
              rdfs:label "emerges from"@en .
 
 
-###  http://example.com#emergesFrom_1
+###  http://purl.org/coreo#emergesFrom_1
 :emergesFrom_1 rdf:type owl:ObjectProperty ;
                rdfs:domain :Disposition ;
                rdfs:range :Capability ;
                rdfs:label "emerges from"@en .
 
 
-###  http://example.com#enables
+###  http://purl.org/coreo#enables
 :enables rdf:type owl:ObjectProperty ;
          rdfs:domain :HumanCapabilityType ;
          rdfs:range :SituationType ;
          rdfs:label "enables"@en .
 
 
-###  http://example.com#enables_1
+###  http://purl.org/coreo#enables_1
 :enables_1 rdf:type owl:ObjectProperty ;
            rdfs:domain :CapabilityType ;
            rdfs:range :CapabilityType ;
            rdfs:label "enables"@en .
 
 
-###  http://example.com#hasPart
+###  http://purl.org/coreo#hasPart
 :hasPart rdf:type owl:ObjectProperty ;
          rdfs:domain :Capability ;
          rdfs:range :Capability ;
          rdfs:label "has part"@en .
 
 
-###  http://example.com#humanCapabilityInheresInPhysicalAgent
+###  http://purl.org/coreo#humanCapabilityInheresInPhysicalAgent
 :humanCapabilityInheresInPhysicalAgent rdf:type owl:ObjectProperty ;
                                        rdfs:subPropertyOf gufo:inheresIn ;
                                        rdfs:domain :HumanCapability ;
                                        rdfs:range :PhysicalAgent .
 
 
-###  http://example.com#humanCapabilityInheresInProficiency
+###  http://purl.org/coreo#humanCapabilityInheresInProficiency
 :humanCapabilityInheresInProficiency rdf:type owl:ObjectProperty ;
                                      rdfs:subPropertyOf gufo:inheresIn ;
                                      rdfs:domain :HumanCapability ;
                                      rdfs:range :Proficiency .
 
 
-###  http://example.com#inheresIn
+###  http://purl.org/coreo#inheresIn
 :inheresIn rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf gufo:inheresIn ;
            rdfs:domain :HumanCapability ;
@@ -233,7 +243,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
            rdfs:label "inheres in"@en .
 
 
-###  http://example.com#inheresIn_1
+###  http://purl.org/coreo#inheresIn_1
 :inheresIn_1 rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf gufo:inheresIn ;
              rdfs:domain :HumanAspect ;
@@ -241,48 +251,48 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:label "inheres in"@en .
 
 
-###  http://example.com#isAdditionalTo
+###  http://purl.org/coreo#isAdditionalTo
 :isAdditionalTo rdf:type owl:ObjectProperty ;
                 rdfs:domain :Capability ;
                 rdfs:range :Disposition ;
                 rdfs:label "is additional to"@en .
 
 
-###  http://example.com#isChangedBy
+###  http://purl.org/coreo#isChangedBy
 :isChangedBy rdf:type owl:ObjectProperty ;
              rdfs:domain :Capability ;
              rdfs:range :Capability ;
              rdfs:label "is changed by"@en .
 
 
-###  http://example.com#isConnectedWith
+###  http://purl.org/coreo#isConnectedWith
 :isConnectedWith rdf:type owl:ObjectProperty ;
                  rdfs:domain :System ;
                  rdfs:range :ExternalEntity .
 
 
-###  http://example.com#isDefinedBy
+###  http://purl.org/coreo#isDefinedBy
 :isDefinedBy rdf:type owl:ObjectProperty ;
              rdfs:domain :CapabilityRequiringRole ;
              rdfs:range :HumanCapabilityType ;
              rdfs:label "is defined by"@en .
 
 
-###  http://example.com#isDisabledBy
+###  http://purl.org/coreo#isDisabledBy
 :isDisabledBy rdf:type owl:ObjectProperty ;
               rdfs:domain :Capability ;
               rdfs:range :Capability ;
               rdfs:label "is disabled by"@en .
 
 
-###  http://example.com#isEnabledBy
+###  http://purl.org/coreo#isEnabledBy
 :isEnabledBy rdf:type owl:ObjectProperty ;
              rdfs:domain :Capability ;
              rdfs:range :Capability ;
              rdfs:label "is enabled by"@en .
 
 
-###  http://example.com#isManifestedBy
+###  http://purl.org/coreo#isManifestedBy
 :isManifestedBy rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf gufo:manifestedIn ;
                 rdfs:domain :HumanCapability ;
@@ -290,21 +300,21 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                 rdfs:label "is manifested by"@en .
 
 
-###  http://example.com#isReciprocalTo
+###  http://purl.org/coreo#isReciprocalTo
 :isReciprocalTo rdf:type owl:ObjectProperty ;
                 rdfs:domain :Capability ;
                 rdfs:range :Disposition ;
                 rdfs:label "is reciprocal to"@en .
 
 
-###  http://example.com#objectIsComponentOfObject
+###  http://purl.org/coreo#objectIsComponentOfObject
 :objectIsComponentOfObject rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf gufo:isComponentOf ;
                            rdfs:domain :Object ;
                            rdfs:range :Object .
 
 
-###  http://example.com#performs
+###  http://purl.org/coreo#performs
 :performs rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf gufo:participatedIn ;
           rdfs:domain :Person ;
@@ -312,147 +322,147 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
           rdfs:label "performs"@en .
 
 
-###  http://example.com#personalCompetenceHasAttitude
+###  http://purl.org/coreo#personalCompetenceHasAttitude
 :personalCompetenceHasAttitude rdf:type owl:ObjectProperty ;
                                rdfs:domain :PersonalCompetence ;
                                rdfs:range :Attitude .
 
 
-###  http://example.com#personalCompetenceHasHumanAspect
+###  http://purl.org/coreo#personalCompetenceHasHumanAspect
 :personalCompetenceHasHumanAspect rdf:type owl:ObjectProperty ;
                                   rdfs:domain :PersonalCompetence ;
                                   rdfs:range :HumanAspect .
 
 
-###  http://example.com#personalCompetenceHasHumanCharacteristic
+###  http://purl.org/coreo#personalCompetenceHasHumanCharacteristic
 :personalCompetenceHasHumanCharacteristic rdf:type owl:ObjectProperty ;
                                           rdfs:domain :PersonalCompetence ;
                                           rdfs:range :HumanCharacteristic .
 
 
-###  http://example.com#personalCompetenceHasKnowledge
+###  http://purl.org/coreo#personalCompetenceHasKnowledge
 :personalCompetenceHasKnowledge rdf:type owl:ObjectProperty ;
                                 rdfs:domain :PersonalCompetence ;
                                 rdfs:range :Knowledge .
 
 
-###  http://example.com#personalCompetenceHasPersonalCompetence
+###  http://purl.org/coreo#personalCompetenceHasPersonalCompetence
 :personalCompetenceHasPersonalCompetence rdf:type owl:ObjectProperty ;
                                          rdfs:domain :PersonalCompetence ;
                                          rdfs:range :PersonalCompetence .
 
 
-###  http://example.com#personalCompetenceHasSkill
+###  http://purl.org/coreo#personalCompetenceHasSkill
 :personalCompetenceHasSkill rdf:type owl:ObjectProperty ;
                             rdfs:domain :PersonalCompetence ;
                             rdfs:range :Skill .
 
 
-###  http://example.com#provedBy
+###  http://purl.org/coreo#provedBy
 :provedBy rdf:type owl:ObjectProperty ;
           rdfs:domain :HumanAspect ;
           rdfs:range :Evidence ;
           rdfs:label "proved by"@en .
 
 
-###  http://example.com#resourceParticipatedInHumanTask
+###  http://purl.org/coreo#resourceParticipatedInHumanTask
 :resourceParticipatedInHumanTask rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf gufo:participatedIn ;
                                  rdfs:domain :Resource ;
                                  rdfs:range :HumanTask .
 
 
-###  http://example.com#resultsFrom
+###  http://purl.org/coreo#resultsFrom
 :resultsFrom rdf:type owl:ObjectProperty ;
              rdfs:domain :SocialCapability ;
              rdfs:range :Capability ;
              rdfs:label "results from"@en .
 
 
-###  http://example.com#resultsFrom_1
+###  http://purl.org/coreo#resultsFrom_1
 :resultsFrom_1 rdf:type owl:ObjectProperty ;
                rdfs:domain :Capability ;
                rdfs:range :Disposition ;
                rdfs:label "results from"@en .
 
 
-###  http://example.com#socialAgentIsComponentOfAgent
+###  http://purl.org/coreo#socialAgentIsComponentOfAgent
 :socialAgentIsComponentOfAgent rdf:type owl:ObjectProperty ;
                                rdfs:subPropertyOf gufo:isComponentOf ;
                                rdfs:domain :SocialAgent ;
                                rdfs:range :Agent .
 
 
-###  http://example.com#socialCapabilityInheresInSocialAgent
+###  http://purl.org/coreo#socialCapabilityInheresInSocialAgent
 :socialCapabilityInheresInSocialAgent rdf:type owl:ObjectProperty ;
                                       rdfs:subPropertyOf gufo:inheresIn ;
                                       rdfs:domain :SocialCapability ;
                                       rdfs:range :SocialAgent .
 
 
-###  http://example.com#specializes
+###  http://purl.org/coreo#specializes
 :specializes rdf:type owl:ObjectProperty ;
              rdfs:domain :ArtifactType ;
              rdfs:range :ArtifactType ;
              rdfs:label "specializes"@en .
 
 
-###  http://example.com#specializes_1
+###  http://purl.org/coreo#specializes_1
 :specializes_1 rdf:type owl:ObjectProperty ;
                rdfs:domain :HumanAspectType ;
                rdfs:range :HumanAspectType ;
                rdfs:label "specializes"@en .
 
 
-###  http://example.com#specializes_2
+###  http://purl.org/coreo#specializes_2
 :specializes_2 rdf:type owl:ObjectProperty ;
                rdfs:domain :TaskType ;
                rdfs:range :TaskType ;
                rdfs:label "specializes"@en .
 
 
-###  http://example.com#specializes_3
+###  http://purl.org/coreo#specializes_3
 :specializes_3 rdf:type owl:ObjectProperty ;
                rdfs:domain :CapabilityRequiringRole ;
                rdfs:range :CapabilityRequiringRole ;
                rdfs:label "specializes"@en .
 
 
-###  http://example.com#standsIn
+###  http://purl.org/coreo#standsIn
 :standsIn rdf:type owl:ObjectProperty ;
           rdfs:domain :CompetenceContext ;
           rdfs:range :Resource ;
           rdfs:label "standsIn"@en .
 
 
-###  http://example.com#standsIn_1
+###  http://purl.org/coreo#standsIn_1
 :standsIn_1 rdf:type owl:ObjectProperty ;
             rdfs:domain :CompetenceContext ;
             rdfs:range :TaskInput ;
             rdfs:label "standsIn"@en .
 
 
-###  http://example.com#systemCapabilityInheresInSystem
+###  http://purl.org/coreo#systemCapabilityInheresInSystem
 :systemCapabilityInheresInSystem rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf gufo:inheresIn ;
                                  rdfs:domain :SystemCapability ;
                                  rdfs:range :System .
 
 
-###  http://example.com#taskOutcomeBroughtAboutHumanTask
+###  http://purl.org/coreo#taskOutcomeBroughtAboutHumanTask
 :taskOutcomeBroughtAboutHumanTask rdf:type owl:ObjectProperty ;
                                   rdfs:subPropertyOf gufo:broughtAbout ;
                                   rdfs:domain :TaskOutcome ;
                                   rdfs:range :HumanTask .
 
 
-###  http://example.com#taskOutcomeHasTaskOutput
+###  http://purl.org/coreo#taskOutcomeHasTaskOutput
 :taskOutcomeHasTaskOutput rdf:type owl:ObjectProperty ;
                           rdfs:domain :TaskOutcome ;
                           rdfs:range :TaskOutput .
 
 
-###  http://example.com#taskOutputWasCreatedInHumanTask
+###  http://purl.org/coreo#taskOutputWasCreatedInHumanTask
 :taskOutputWasCreatedInHumanTask rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf gufo:wasCreatedIn ;
                                  rdfs:domain :TaskOutput ;
@@ -463,32 +473,32 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  http://example.com#Agent
+###  http://purl.org/coreo#Agent
 :Agent rdf:type owl:Class ;
        rdfs:subClassOf :Object .
 
 
-###  http://example.com#Artifact
+###  http://purl.org/coreo#Artifact
 :Artifact rdf:type owl:Class ;
           rdfs:subClassOf gufo:FunctionalComplex .
 
 
-###  http://example.com#ArtifactType
+###  http://purl.org/coreo#ArtifactType
 :ArtifactType rdf:type owl:Class ;
               rdfs:subClassOf :SubstantialType .
 
 
-###  http://example.com#Attitude
+###  http://purl.org/coreo#Attitude
 :Attitude rdf:type owl:Class ;
           rdfs:subClassOf :HumanAspect .
 
 
-###  http://example.com#AttitudeType
+###  http://purl.org/coreo#AttitudeType
 :AttitudeType rdf:type owl:Class ;
               rdfs:subClassOf :HumanAspectType .
 
 
-###  http://example.com#Capability
+###  http://purl.org/coreo#Capability
 :Capability rdf:type owl:Class ;
             rdfs:subClassOf :Disposition ,
                             [ rdf:type owl:Restriction ;
@@ -509,7 +519,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                             ] .
 
 
-###  http://example.com#CapabilityContext
+###  http://purl.org/coreo#CapabilityContext
 :CapabilityContext rdf:type owl:Class ;
                    rdfs:subClassOf gufo:Situation ,
                                    [ rdf:type owl:Restriction ;
@@ -519,7 +529,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                    ] .
 
 
-###  http://example.com#CapabilityManifestation
+###  http://purl.org/coreo#CapabilityManifestation
 :CapabilityManifestation rdf:type owl:Class ;
                          rdfs:subClassOf gufo:Event ,
                                          [ rdf:type owl:Restriction ;
@@ -529,7 +539,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                          ] .
 
 
-###  http://example.com#CapabilityOutcome
+###  http://purl.org/coreo#CapabilityOutcome
 :CapabilityOutcome rdf:type owl:Class ;
                    rdfs:subClassOf gufo:Situation ,
                                    [ rdf:type owl:Restriction ;
@@ -540,17 +550,17 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                    ] .
 
 
-###  http://example.com#CapabilityRequiringRole
+###  http://purl.org/coreo#CapabilityRequiringRole
 :CapabilityRequiringRole rdf:type owl:Class ;
                          rdfs:subClassOf gufo:Role .
 
 
-###  http://example.com#CapabilityType
+###  http://purl.org/coreo#CapabilityType
 :CapabilityType rdf:type owl:Class ;
                 rdfs:subClassOf :DispositionType .
 
 
-###  http://example.com#CompetenceContext
+###  http://purl.org/coreo#CompetenceContext
 :CompetenceContext rdf:type owl:Class ;
                    rdfs:subClassOf gufo:Situation ,
                                    [ rdf:type owl:Restriction ;
@@ -560,37 +570,37 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                    ] .
 
 
-###  http://example.com#CompetenceType
+###  http://purl.org/coreo#CompetenceType
 :CompetenceType rdf:type owl:Class ;
                 rdfs:subClassOf :HumanCapabilityType .
 
 
-###  http://example.com#Disposition
+###  http://purl.org/coreo#Disposition
 :Disposition rdf:type owl:Class ;
              rdfs:subClassOf gufo:IntrinsicMode .
 
 
-###  http://example.com#DispositionType
+###  http://purl.org/coreo#DispositionType
 :DispositionType rdf:type owl:Class ;
                  rdfs:subClassOf :MomentType .
 
 
-###  http://example.com#Evidence
+###  http://purl.org/coreo#Evidence
 :Evidence rdf:type owl:Class ;
           rdfs:subClassOf gufo:FunctionalComplex .
 
 
-###  http://example.com#ExternalEntity
+###  http://purl.org/coreo#ExternalEntity
 :ExternalEntity rdf:type owl:Class ;
                 rdfs:subClassOf :Object .
 
 
-###  http://example.com#Field
+###  http://purl.org/coreo#Field
 :Field rdf:type owl:Class ;
        rdfs:subClassOf gufo:ConcreteIndividualType .
 
 
-###  http://example.com#HumanAspect
+###  http://purl.org/coreo#HumanAspect
 :HumanAspect rdf:type owl:Class ;
              rdfs:subClassOf gufo:IntrinsicMode ,
                              [ rdf:type owl:Restriction ;
@@ -600,18 +610,18 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                              ] .
 
 
-###  http://example.com#HumanAspectPhase
+###  http://purl.org/coreo#HumanAspectPhase
 :HumanAspectPhase rdf:type owl:Class ;
                   rdfs:subClassOf :HumanAspectType ,
                                   gufo:Phase .
 
 
-###  http://example.com#HumanAspectType
+###  http://purl.org/coreo#HumanAspectType
 :HumanAspectType rdf:type owl:Class ;
                  rdfs:subClassOf :MomentType .
 
 
-###  http://example.com#HumanCapability
+###  http://purl.org/coreo#HumanCapability
 :HumanCapability rdf:type owl:Class ;
                  rdfs:subClassOf :Capability ,
                                  :HumanAspect ,
@@ -632,24 +642,24 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                  ] .
 
 
-###  http://example.com#HumanCapabilityType
+###  http://purl.org/coreo#HumanCapabilityType
 :HumanCapabilityType rdf:type owl:Class ;
                      rdfs:subClassOf :CapabilityType ,
                                      :DispositionType ,
                                      :HumanAspectType .
 
 
-###  http://example.com#HumanCharacteristic
+###  http://purl.org/coreo#HumanCharacteristic
 :HumanCharacteristic rdf:type owl:Class ;
                      rdfs:subClassOf :HumanAspect .
 
 
-###  http://example.com#HumanQuality
+###  http://purl.org/coreo#HumanQuality
 :HumanQuality rdf:type owl:Class ;
               rdfs:subClassOf :HumanCharacteristic .
 
 
-###  http://example.com#HumanTask
+###  http://purl.org/coreo#HumanTask
 :HumanTask rdf:type owl:Class ;
            rdfs:subClassOf gufo:Event ,
                            [ rdf:type owl:Restriction ;
@@ -681,27 +691,27 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                            ] .
 
 
-###  http://example.com#HumanTrait
+###  http://purl.org/coreo#HumanTrait
 :HumanTrait rdf:type owl:Class ;
             rdfs:subClassOf :HumanCharacteristic .
 
 
-###  http://example.com#Knowledge
+###  http://purl.org/coreo#Knowledge
 :Knowledge rdf:type owl:Class ;
            rdfs:subClassOf :HumanAspect .
 
 
-###  http://example.com#KnowledgeType
+###  http://purl.org/coreo#KnowledgeType
 :KnowledgeType rdf:type owl:Class ;
                rdfs:subClassOf :HumanAspectType .
 
 
-###  http://example.com#MomentType
+###  http://purl.org/coreo#MomentType
 :MomentType rdf:type owl:Class ;
             rdfs:subClassOf gufo:EndurantType .
 
 
-###  http://example.com#Object
+###  http://purl.org/coreo#Object
 :Object rdf:type owl:Class ;
         rdfs:subClassOf gufo:FunctionalComplex ,
                         [ rdf:type owl:Restriction ;
@@ -712,7 +722,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                         ] .
 
 
-###  http://example.com#Person
+###  http://purl.org/coreo#Person
 :Person rdf:type owl:Class ;
         rdfs:subClassOf :Agent ,
                         :PhysicalAgent ,
@@ -724,7 +734,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                         ] .
 
 
-###  http://example.com#PersonalCompetence
+###  http://purl.org/coreo#PersonalCompetence
 :PersonalCompetence rdf:type owl:Class ;
                     rdfs:subClassOf :HumanCapability ,
                                     [ rdf:type owl:Restriction ;
@@ -741,7 +751,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                     ] .
 
 
-###  http://example.com#PhysicalAgent
+###  http://purl.org/coreo#PhysicalAgent
 :PhysicalAgent rdf:type owl:Class ;
                rdfs:subClassOf :Agent ,
                                [ rdf:type owl:Restriction ;
@@ -752,7 +762,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                ] .
 
 
-###  http://example.com#Proficiency
+###  http://purl.org/coreo#Proficiency
 :Proficiency rdf:type owl:Class ;
              rdfs:subClassOf gufo:IntrinsicMode ,
                              [ rdf:type owl:Restriction ;
@@ -763,32 +773,32 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                              ] .
 
 
-###  http://example.com#Resource
+###  http://purl.org/coreo#Resource
 :Resource rdf:type owl:Class ;
           rdfs:subClassOf gufo:FunctionalComplex .
 
 
-###  http://example.com#ResourceType
+###  http://purl.org/coreo#ResourceType
 :ResourceType rdf:type owl:Class ;
               rdfs:subClassOf :SubstantialType .
 
 
-###  http://example.com#SituationType
+###  http://purl.org/coreo#SituationType
 :SituationType rdf:type owl:Class ;
                rdfs:subClassOf gufo:ConcreteIndividualType .
 
 
-###  http://example.com#Skill
+###  http://purl.org/coreo#Skill
 :Skill rdf:type owl:Class ;
        rdfs:subClassOf :HumanCapability .
 
 
-###  http://example.com#SkillType
+###  http://purl.org/coreo#SkillType
 :SkillType rdf:type owl:Class ;
            rdfs:subClassOf :HumanCapabilityType .
 
 
-###  http://example.com#SocialAgent
+###  http://purl.org/coreo#SocialAgent
 :SocialAgent rdf:type owl:Class ;
              rdfs:subClassOf :Agent ,
                              [ rdf:type owl:Restriction ;
@@ -799,7 +809,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                              ] .
 
 
-###  http://example.com#SocialCapability
+###  http://purl.org/coreo#SocialCapability
 :SocialCapability rdf:type owl:Class ;
                   rdfs:subClassOf :Capability ,
                                   [ rdf:type owl:Restriction ;
@@ -809,12 +819,12 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                   ] .
 
 
-###  http://example.com#SubstantialType
+###  http://purl.org/coreo#SubstantialType
 :SubstantialType rdf:type owl:Class ;
                  rdfs:subClassOf gufo:EndurantType .
 
 
-###  http://example.com#System
+###  http://purl.org/coreo#System
 :System rdf:type owl:Class ;
         rdfs:subClassOf :Object ,
                         [ rdf:type owl:Restriction ;
@@ -825,7 +835,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                         ] .
 
 
-###  http://example.com#SystemCapability
+###  http://purl.org/coreo#SystemCapability
 :SystemCapability rdf:type owl:Class ;
                   rdfs:subClassOf :Capability ,
                                   [ rdf:type owl:Restriction ;
@@ -835,12 +845,12 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                   ] .
 
 
-###  http://example.com#TaskInput
+###  http://purl.org/coreo#TaskInput
 :TaskInput rdf:type owl:Class ;
            rdfs:subClassOf :Artifact .
 
 
-###  http://example.com#TaskOutcome
+###  http://purl.org/coreo#TaskOutcome
 :TaskOutcome rdf:type owl:Class ;
              rdfs:subClassOf gufo:Situation ,
                              [ rdf:type owl:Restriction ;
@@ -850,7 +860,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                              ] .
 
 
-###  http://example.com#TaskOutput
+###  http://purl.org/coreo#TaskOutput
 :TaskOutput rdf:type owl:Class ;
             rdfs:subClassOf :Artifact ,
                             [ rdf:type owl:Restriction ;
@@ -860,7 +870,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                             ] .
 
 
-###  http://example.com#TaskType
+###  http://purl.org/coreo#TaskType
 :TaskType rdf:type owl:Class ;
           rdfs:subClassOf gufo:EventType .
 
@@ -869,247 +879,247 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 #    Individuals
 #################################################################
 
-###  http://example.com#Agent
+###  http://purl.org/coreo#Agent
 :Agent rdf:type owl:NamedIndividual ,
                 gufo:Category .
 
 
-###  http://example.com#Artifact
+###  http://purl.org/coreo#Artifact
 :Artifact rdf:type owl:NamedIndividual ,
                    gufo:Category .
 
 
-###  http://example.com#ArtifactType
+###  http://purl.org/coreo#ArtifactType
 :ArtifactType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Attitude
+###  http://purl.org/coreo#Attitude
 :Attitude rdf:type owl:NamedIndividual ,
                    gufo:Kind .
 
 
-###  http://example.com#AttitudeType
+###  http://purl.org/coreo#AttitudeType
 :AttitudeType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Capability
+###  http://purl.org/coreo#Capability
 :Capability rdf:type owl:NamedIndividual ,
                      gufo:Category .
 
 
-###  http://example.com#CapabilityContext
+###  http://purl.org/coreo#CapabilityContext
 :CapabilityContext rdf:type owl:NamedIndividual ,
                             gufo:SituationType .
 
 
-###  http://example.com#CapabilityManifestation
+###  http://purl.org/coreo#CapabilityManifestation
 :CapabilityManifestation rdf:type owl:NamedIndividual ,
                                   gufo:EventType .
 
 
-###  http://example.com#CapabilityOutcome
+###  http://purl.org/coreo#CapabilityOutcome
 :CapabilityOutcome rdf:type owl:NamedIndividual ,
                             gufo:SituationType .
 
 
-###  http://example.com#CapabilityRequiringRole
+###  http://purl.org/coreo#CapabilityRequiringRole
 :CapabilityRequiringRole rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#CapabilityType
+###  http://purl.org/coreo#CapabilityType
 :CapabilityType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#CompetenceContext
+###  http://purl.org/coreo#CompetenceContext
 :CompetenceContext rdf:type owl:NamedIndividual ,
                             gufo:SituationType .
 
 
-###  http://example.com#CompetenceType
+###  http://purl.org/coreo#CompetenceType
 :CompetenceType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Disposition
+###  http://purl.org/coreo#Disposition
 :Disposition rdf:type owl:NamedIndividual ,
                       gufo:Category .
 
 
-###  http://example.com#DispositionType
+###  http://purl.org/coreo#DispositionType
 :DispositionType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Evidence
+###  http://purl.org/coreo#Evidence
 :Evidence rdf:type owl:NamedIndividual ,
                    gufo:Category .
 
 
-###  http://example.com#ExternalEntity
+###  http://purl.org/coreo#ExternalEntity
 :ExternalEntity rdf:type owl:NamedIndividual ,
                          gufo:RoleMixin .
 
 
-###  http://example.com#Field
+###  http://purl.org/coreo#Field
 :Field rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#HumanAspect
+###  http://purl.org/coreo#HumanAspect
 :HumanAspect rdf:type owl:NamedIndividual ,
                       gufo:Category .
 
 
-###  http://example.com#HumanAspectPhase
+###  http://purl.org/coreo#HumanAspectPhase
 :HumanAspectPhase rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#HumanAspectType
+###  http://purl.org/coreo#HumanAspectType
 :HumanAspectType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#HumanCapability
+###  http://purl.org/coreo#HumanCapability
 :HumanCapability rdf:type owl:NamedIndividual ,
                           gufo:Kind .
 
 
-###  http://example.com#HumanCapabilityType
+###  http://purl.org/coreo#HumanCapabilityType
 :HumanCapabilityType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#HumanCharacteristic
+###  http://purl.org/coreo#HumanCharacteristic
 :HumanCharacteristic rdf:type owl:NamedIndividual ,
                               gufo:Category .
 
 
-###  http://example.com#HumanQuality
+###  http://purl.org/coreo#HumanQuality
 :HumanQuality rdf:type owl:NamedIndividual ,
                        gufo:Category .
 
 
-###  http://example.com#HumanTask
+###  http://purl.org/coreo#HumanTask
 :HumanTask rdf:type owl:NamedIndividual ,
                     gufo:EventType .
 
 
-###  http://example.com#HumanTrait
+###  http://purl.org/coreo#HumanTrait
 :HumanTrait rdf:type owl:NamedIndividual ,
                      gufo:Category .
 
 
-###  http://example.com#Knowledge
+###  http://purl.org/coreo#Knowledge
 :Knowledge rdf:type owl:NamedIndividual ,
                     gufo:Kind .
 
 
-###  http://example.com#KnowledgeType
+###  http://purl.org/coreo#KnowledgeType
 :KnowledgeType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#MomentType
+###  http://purl.org/coreo#MomentType
 :MomentType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Object
+###  http://purl.org/coreo#Object
 :Object rdf:type owl:NamedIndividual ,
                  gufo:Category .
 
 
-###  http://example.com#PerdurantType
+###  http://purl.org/coreo#PerdurantType
 :PerdurantType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Person
+###  http://purl.org/coreo#Person
 :Person rdf:type owl:NamedIndividual ,
                  gufo:Kind .
 
 
-###  http://example.com#PersonalCompetence
+###  http://purl.org/coreo#PersonalCompetence
 :PersonalCompetence rdf:type owl:NamedIndividual ,
                              gufo:SubKind .
 
 
-###  http://example.com#Phase
+###  http://purl.org/coreo#Phase
 :Phase rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#PhysicalAgent
+###  http://purl.org/coreo#PhysicalAgent
 :PhysicalAgent rdf:type owl:NamedIndividual ,
                         gufo:Category .
 
 
-###  http://example.com#Proficiency
+###  http://purl.org/coreo#Proficiency
 :Proficiency rdf:type owl:NamedIndividual ,
                       gufo:Kind .
 
 
-###  http://example.com#Resource
+###  http://purl.org/coreo#Resource
 :Resource rdf:type owl:NamedIndividual ,
                    gufo:RoleMixin .
 
 
-###  http://example.com#ResourceType
+###  http://purl.org/coreo#ResourceType
 :ResourceType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Role
+###  http://purl.org/coreo#Role
 :Role rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#SituationType
+###  http://purl.org/coreo#SituationType
 :SituationType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#Skill
+###  http://purl.org/coreo#Skill
 :Skill rdf:type owl:NamedIndividual ,
                 gufo:SubKind .
 
 
-###  http://example.com#SkillType
+###  http://purl.org/coreo#SkillType
 :SkillType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#SocialAgent
+###  http://purl.org/coreo#SocialAgent
 :SocialAgent rdf:type owl:NamedIndividual ,
                       gufo:Category .
 
 
-###  http://example.com#SocialCapability
+###  http://purl.org/coreo#SocialCapability
 :SocialCapability rdf:type owl:NamedIndividual ,
                            gufo:Kind .
 
 
-###  http://example.com#SubstantialType
+###  http://purl.org/coreo#SubstantialType
 :SubstantialType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#System
+###  http://purl.org/coreo#System
 :System rdf:type owl:NamedIndividual ,
                  gufo:Category .
 
 
-###  http://example.com#SystemCapability
+###  http://purl.org/coreo#SystemCapability
 :SystemCapability rdf:type owl:NamedIndividual ,
                            gufo:Category .
 
 
-###  http://example.com#TaskInput
+###  http://purl.org/coreo#TaskInput
 :TaskInput rdf:type owl:NamedIndividual ,
                     gufo:RoleMixin .
 
 
-###  http://example.com#TaskOutcome
+###  http://purl.org/coreo#TaskOutcome
 :TaskOutcome rdf:type owl:NamedIndividual ,
                       gufo:SituationType .
 
 
-###  http://example.com#TaskOutput
+###  http://purl.org/coreo#TaskOutput
 :TaskOutput rdf:type owl:NamedIndividual ,
                      gufo:RoleMixin .
 
 
-###  http://example.com#TaskType
+###  http://purl.org/coreo#TaskType
 :TaskType rdf:type owl:NamedIndividual .
 
 
-###  http://example.com#isConnectedWith
+###  http://purl.org/coreo#isConnectedWith
 :isConnectedWith rdf:type owl:NamedIndividual ,
                           gufo:MaterialRelationshipType .
 
@@ -1124,8 +1134,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :Artifact rdfs:label "Artifact"@en .
 
 
-:ArtifactType rdfs:label "Artifact Type"@en ;
-              gufo:categorizes :Artifact .
+:ArtifactType gufo:categorizes :Artifact ;
+              rdfs:label "Artifact Type"@en .
 
 
 :Attitude rdfs:label "Attitude"@en .
@@ -1150,8 +1160,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                          rdfs:label "Capability-requiring Role"@en .
 
 
-:CapabilityType rdfs:label "Capability Type"@en ;
-                gufo:categorizes :Capability .
+:CapabilityType gufo:categorizes :Capability ;
+                rdfs:label "Capability Type"@en .
 
 
 :CompetenceContext rdfs:label "Competence Context"@en .
