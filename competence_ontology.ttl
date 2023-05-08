@@ -8,16 +8,37 @@
 @base <http://purl.org/coreo> .
 
 <http://purl.org/coreo> rdf:type owl:Ontology ;
+                         owl:versionIRI <http://purl.org/coreo/1.0.0> ;
                          owl:imports <http://purl.org/nemo/gufo#/1.0.0> ;
                          <http://purl.org/dc/elements/1.1/creator> """\"Calhau, Rodrigo F.\",
 \"Almeida, João Paulo A.\",
 \"Guizzardi, Giancarlo\";"""@en ;
                          <http://purl.org/dc/elements/1.1/title> "Core-o: Competence Reference Ontology"@en ;
+                         <http://purl.org/dc/terms/bibliographicCitation> "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
                          <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
                          <http://purl.org/dc/terms/license> "<https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
                          <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
                          <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/coreo"@en ;
+                         rdfs:comment """Core-O is a well-founded competence reference ontology that accounts for competence-related elements such as knowledge, attitudes, and skills; also countenance their performance---related to tasks, their context, and outcomes---as well as their evolution over time (proficiency). This ontology is based on the Unified Foundational Ontology (Guizzardi, 2005), more specifically using gUFO (gentle UFO), a UFO-based lightweight ontology.
+The ontology was based on these works: (CALHAU et al., 2021) and (CALHAU et al., 2023)
+
+It was created to support: (i) semantically annotate competence-related artifacts such as curriculum, job vacancy, learning objects, resources, professional profiles, task logs, logbooks, and learning diaries; (ii) semantically inter-operate and integrate professional data concerning internal system (from organizations, VET institutions) and external ones (e.g., professional networks as LinkedIn); (iii) support the semantic search to find the best professional to an occupation, or to find the best occupation to a professional; (iv) support the skill/competence matching in gap analysis; (v) support competence/skill identification/assessment based on ontology-driven data and text mining in competence-related artifacts, such as learning diary, logbook, or task logs from control version tools as Github.
+
+
+For background information on the reference ontology, see: 
+
+1. CALHAU, Rodrigo F.; AZEVEDO, Carlos LB; ALMEIDA, João Paulo A. Towards Ontology-based Competence Modeling in Enterprise Architecture. In: 2021 IEEE 25th International Enterprise Distributed Object Computing Conference (EDOC). IEEE, 2021. p. 71-81.
+2. CALHAU, Rodrigo F.; ALMEIDA, João Paulo A. Zooming in on Competences in Ontology-Based Enterprise Architecture Modeling. In: Enterprise Design, Operations, and Computing. EDOC 2022 Workshops: IDAMS, SoEA4EE, TEAR, EDOC Forum, Demonstrations Track and Doctoral Consortium, Bozen-Bolzano, Italy, October 4–7, 2022, Revised Selected Papers. Cham: Springer International Publishing, 2023. p. 198-213.
+3. GUIZZARDI, Giancarlo. Ontological foundations for structural conceptual models. 2005.
+
+Cite this work as: 
+R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo
+
+This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>.
+
+
+For the source repository, see: <https://github.com/core-o/ontology>"""@en ;
                          owl:versionInfo "1.0.0"@en .
 
 #################################################################
