@@ -18,7 +18,7 @@
                          <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
                          <http://purl.org/dc/terms/description> "An ontology to describe competences and human capabilities"@en ;
                          <http://purl.org/dc/terms/issued> "2023-05-08"^^xsd:date ;
-                         <http://purl.org/dc/terms/license> "<https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                         <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode"@en ;
                          <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
                          <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"@en ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
