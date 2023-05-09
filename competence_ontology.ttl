@@ -79,10 +79,11 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/coreo#activates
 :activates rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf gufo:contributedToTrigger ;
+           rdfs:subPropertyOf :activates_1 ;
            rdfs:domain :CompetenceContext ;
            rdfs:range :PersonalCompetence ;
-           rdfs:label "activates"@en .
+           rdfs:comment "Identifies a coreo:PersonalCompetence that the coreo:CompetenceContext contributed to trigger."@en ;
+           rdfs:label "activatesCompetence"@en .
 
 
 ###  http://purl.org/coreo#activates_1
@@ -90,6 +91,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:subPropertyOf gufo:contributedToTrigger ;
              rdfs:domain :CompetenceContext ;
              rdfs:range :HumanCapability ;
+             rdfs:comment "Identifies a coreo:HumanCapability that the coreo:CompetenceContext contributed to trigger."@en ;
              rdfs:label "activates"@en .
 
 
@@ -105,7 +107,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :capabilityRequiringRoleHasField rdf:type owl:ObjectProperty ;
                                  rdfs:domain :CapabilityRequiringRole ;
                                  rdfs:range :Field ;
-                                 rdfs:comment "Describes the field of a coreo:CapabilityRequiringRole"@en .
+                                 rdfs:comment "Describes the field of a coreo:CapabilityRequiringRole"@en ;
+                                 rdfs:label "hasField"@en .
 
 
 ###  http://purl.org/coreo#characterizedBy
@@ -121,7 +124,9 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :competenceContextContributedToTriggerHumanTask rdf:type owl:ObjectProperty ;
                                                 rdfs:subPropertyOf gufo:contributedToTrigger ;
                                                 rdfs:domain :CompetenceContext ;
-                                                rdfs:range :HumanTask .
+                                                rdfs:range :HumanTask ;
+                                                rdfs:comment "Identifies a coreo:HumanTask that the coreo:CompetenceContext contributed to trigger."@en ;
+                                                rdfs:label "activatesTask"@en .
 
 
 ###  http://purl.org/coreo#competenceOutcomeBroughtAboutHumanTask
@@ -163,7 +168,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :constitutesType rdf:type owl:ObjectProperty ;
                  rdfs:domain gufo:Type ;
                  rdfs:range gufo:Type ;
-                 rdfs:comment "Describes the constitutive relationship between types manifested as parthood relationships between their instances"@en .
+                 rdfs:comment "Describes the constitutive relationship between types manifested as parthood relationships between their instances"@en ;
+                 rdfs:label "constitutesType"@en .
 
 
 ###  http://purl.org/coreo#contributesTo
@@ -196,7 +202,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :dependsOnType rdf:type owl:ObjectProperty ;
                rdfs:domain gufo:Type ;
                rdfs:range gufo:Type ;
-               rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en .
+               rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
+               rdfs:label "dependsOnType"@en .
 
 
 ###  http://purl.org/coreo#dependsOn_1
@@ -230,7 +237,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :describedBy rdf:type owl:ObjectProperty ;
              rdfs:domain gufo:Type ;
              rdfs:range gufo:Type ;
-             rdfs:comment "Relationship used to detail a type"@en .
+             rdfs:comment "Relationship used to detail a type"@en ;
+             rdfs:label "describedBy"@en .
 
 
 ###  http://purl.org/coreo#enables
@@ -254,7 +262,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
            rdfs:subPropertyOf gufo:inheresIn ;
            rdfs:domain :HumanCapability ;
            rdfs:range :Proficiency ;
-           rdfs:label "inheres in"@en .
+           rdfs:comment "relates a coreo:Proficiency to the correspondent coreo:HumanCapability"@en ;
+           rdfs:label "inheresInHumanCapability"@en .
 
 
 ###  http://purl.org/coreo#inheresIn_1
@@ -262,7 +271,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:subPropertyOf gufo:inheresIn ;
              rdfs:domain :HumanCapability ;
              rdfs:range :Person ;
-             rdfs:label "inheres in"@en .
+             rdfs:comment "relates the coreo:HumanCapability to the correspondent coreo:Person"@en ;
+             rdfs:label "CapabilityInheresInPerson"@en .
 
 
 ###  http://purl.org/coreo#inheresIn_2
@@ -270,7 +280,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:subPropertyOf gufo:inheresIn ;
              rdfs:domain :HumanAspect ;
              rdfs:range :Person ;
-             rdfs:label "inheres in"@en .
+             rdfs:comment "relates the coreo:HumanAspect to the correspondent coreo:Person"@en ;
+             rdfs:label "inheresInPerson"@en .
 
 
 ###  http://purl.org/coreo#isDefinedBy
@@ -294,6 +305,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
            rdfs:subPropertyOf gufo:participatedIn ;
            rdfs:domain :Person ;
            rdfs:range :HumanTask ;
+           rdfs:comment "participation of a person in a human task"@en ;
            rdfs:label "performed"@en .
 
 
@@ -301,35 +313,45 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :personalCompetenceHasAttitude rdf:type owl:ObjectProperty ;
                                rdfs:subPropertyOf gufo:isAspectProperPartOf ;
                                rdfs:domain :PersonalCompetence ;
-                               rdfs:range :Attitude .
+                               rdfs:range :Attitude ;
+                               rdfs:comment "parthood relation between a competence and attitude"@en ;
+                               rdfs:label "hasAttitude"@en .
 
 
 ###  http://purl.org/coreo#personalCompetenceHasHumanAspect
 :personalCompetenceHasHumanAspect rdf:type owl:ObjectProperty ;
                                   rdfs:subPropertyOf gufo:isAspectProperPartOf ;
                                   rdfs:domain :PersonalCompetence ;
-                                  rdfs:range :HumanAspect .
+                                  rdfs:range :HumanAspect ;
+                                  rdfs:comment "parthood relation between a competence and human aspect"@en ;
+                                  rdfs:label "hasHumanAspect"@en .
 
 
 ###  http://purl.org/coreo#personalCompetenceHasKnowledge
 :personalCompetenceHasKnowledge rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf gufo:isAspectProperPartOf ;
                                 rdfs:domain :PersonalCompetence ;
-                                rdfs:range :Knowledge .
+                                rdfs:range :Knowledge ;
+                                rdfs:comment "parthood relation between a competence and knowledge"@en ;
+                                rdfs:label "hasKnowledge"@en .
 
 
 ###  http://purl.org/coreo#personalCompetenceHasPersonalCompetence
 :personalCompetenceHasPersonalCompetence rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf gufo:isAspectProperPartOf ;
                                          rdfs:domain :PersonalCompetence ;
-                                         rdfs:range :PersonalCompetence .
+                                         rdfs:range :PersonalCompetence ;
+                                         rdfs:comment "parthood relation between a competence and other competence"@en ;
+                                         rdfs:label "hasCompetence"@en .
 
 
 ###  http://purl.org/coreo#personalCompetenceHasSkill
 :personalCompetenceHasSkill rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf gufo:isAspectProperPartOf ;
                             rdfs:domain :PersonalCompetence ;
-                            rdfs:range :Skill .
+                            rdfs:range :Skill ;
+                            rdfs:comment "parthood relation between a competence and skill"@en ;
+                            rdfs:label "hasSkill"@en .
 
 
 ###  http://purl.org/coreo#socialAgentIsComponentOfAgent
@@ -414,7 +436,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                 rdfs:subPropertyOf gufo:wasCreatedIn ;
                 rdfs:domain :TaskOutput ;
                 rdfs:range :HumanTask ;
-                rdfs:label "was generated in"@en .
+                rdfs:comment "output generation from a coreo:HumanTask"@en ;
+                rdfs:label "wasGeneratedIn"@en .
 
 
 ###  http://purl.org/coreo#wasManifestedIn
@@ -438,7 +461,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
            rdfs:subPropertyOf gufo:participatedIn ;
            rdfs:domain :TaskInput ;
            rdfs:range :HumanTask ;
-           rdfs:label "was used in"@en .
+           rdfs:comment "usage of a artifact in a human task as input"@en ;
+           rdfs:label "wasUsedIn"@en .
 
 
 ###  http://purl.org/coreo#wasUsedIn_1
@@ -446,7 +470,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:subPropertyOf gufo:participatedIn ;
              rdfs:domain :Resource ;
              rdfs:range :HumanTask ;
-             rdfs:label "was used in"@en .
+             rdfs:comment "usage of an object in a human task as a resource"@en ;
+             rdfs:label "wasUsedIn"@en .
 
 
 #################################################################
@@ -996,7 +1021,7 @@ E.G.  John's graduation certification in computer science,  Mary's project parti
 
 
 :HumanAspect rdfs:comment "Aspects inherent to an individual. Includes human capabilities (skills and competences), knowledge, attidutes, and other characteristics (human qualities as age, gender, etc and human traits)."@en ;
-             rdfs:label "Human Aspect"@en .
+             rdfs:label "HumanAspect"@en .
 
 
 :HumanAspectPhase rdfs:label "HumanAspectPhase"@en ;
