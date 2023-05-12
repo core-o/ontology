@@ -10,15 +10,15 @@
 <http://purl.org/coreo> rdf:type owl:Ontology ;
                          owl:versionIRI <http://purl.org/coreo/1.0.0> ;
                          owl:imports <http://purl.org/nemo/gufo#/1.0.0> ;
-                         <http://purl.org/dc/elements/1.1/creator> """\"Calhau, Rodrigo F.\",
-\"Almeida, João Paulo A.\",
-\"Guizzardi, Giancarlo\";"""@en ;
+                         <http://purl.org/dc/elements/1.1/creator> """<https://orcid.org/0009-0006-6051-2165>,
+<https://orcid.org/0000-0002-9819-3781>,
+<https://orcid.org/0000-0002-5385-5761>,
+<https://orcid.org/0000-0002-3452-553X>"""@en ;
                          <http://purl.org/dc/elements/1.1/title> "Core-o: Competence Reference Ontology"@en ;
                          <http://purl.org/dc/terms/bibliographicCitation> "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
                          <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
                          <http://purl.org/dc/terms/description> "An ontology to describe competences and human capabilities"@en ;
                          <http://purl.org/dc/terms/issued> "2023-05-08"^^xsd:date ;
-                         <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode"@en ;
                          <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
                          <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"@en ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
@@ -77,24 +77,6 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://purl.org/coreo#activates
-:activates rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :activates_1 ;
-           rdfs:domain :CompetenceContext ;
-           rdfs:range :PersonalCompetence ;
-           rdfs:comment "Identifies a coreo:PersonalCompetence that the coreo:CompetenceContext contributed to trigger."@en ;
-           rdfs:label "activatesCompetence"@en .
-
-
-###  http://purl.org/coreo#activates_1
-:activates_1 rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf gufo:contributedToTrigger ;
-             rdfs:domain :CompetenceContext ;
-             rdfs:range :HumanCapability ;
-             rdfs:comment "Identifies a coreo:HumanCapability that the coreo:CompetenceContext contributed to trigger."@en ;
-             rdfs:label "activates"@en .
-
-
 ###  http://purl.org/coreo#bringsAbout
 :bringsAbout rdf:type owl:ObjectProperty ;
              rdfs:domain :TaskType ;
@@ -129,8 +111,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                                 rdfs:label "activatesTask"@en .
 
 
-###  http://purl.org/coreo#competenceOutcomeBroughtAboutHumanTask
-:competenceOutcomeBroughtAboutHumanTask rdf:type owl:ObjectProperty ;
+###  http://purl.org/coreo#broughtAboutHumanTask
+:broughtAboutHumanTask rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf gufo:broughtAbout ;
                                         rdfs:domain :CompetenceOutcome ;
                                         rdfs:range :HumanTask ;
@@ -246,7 +228,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
          rdfs:domain :HumanCapabilityType ;
          rdfs:range gufo:SituationType ;
          rdfs:comment "Relationship used to detail types of contexts that activates HumanCapabilityTypes"@en ;
-         rdfs:label "enables"@en .
+         rdfs:label "enablesSituationType"@en .
 
 
 ###  http://purl.org/coreo#evidencedBy
@@ -260,15 +242,21 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 ###  http://purl.org/coreo#inheresIn
 :inheresIn rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf gufo:inheresIn ;
-           rdfs:domain :HumanCapability ;
-           rdfs:range :Proficiency ;
+           rdf:type owl:FunctionalProperty ,
+                    owl:AsymmetricProperty ,
+                    owl:IrreflexiveProperty ;
+           rdfs:domain :Proficiency ;
+           rdfs:range :HumanCapability ;
            rdfs:comment "relates a coreo:Proficiency to the correspondent coreo:HumanCapability"@en ;
            rdfs:label "inheresInHumanCapability"@en .
 
 
 ###  http://purl.org/coreo#inheresIn_1
 :inheresIn_1 rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf gufo:inheresIn ;
+             rdfs:subPropertyOf :inheresIn_2 ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ,
+                      owl:IrreflexiveProperty ;
              rdfs:domain :HumanCapability ;
              rdfs:range :Person ;
              rdfs:comment "relates the coreo:HumanCapability to the correspondent coreo:Person"@en ;
@@ -278,6 +266,9 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 ###  http://purl.org/coreo#inheresIn_2
 :inheresIn_2 rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf gufo:inheresIn ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ,
+                      owl:IrreflexiveProperty ;
              rdfs:domain :HumanAspect ;
              rdfs:range :Person ;
              rdfs:comment "relates the coreo:HumanAspect to the correspondent coreo:Person"@en ;
@@ -291,13 +282,6 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:range :HumanCapabilityType ;
              rdfs:comment "Relationship used to detail a coreo:HumanCapabilityType"@en ;
              rdfs:label "isDefinedBy"@en .
-
-
-###  http://purl.org/coreo#objectIsComponentOfObject
-:objectIsComponentOfObject rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf gufo:isComponentOf ;
-                           rdfs:domain :Object ;
-                           rdfs:range :Object .
 
 
 ###  http://purl.org/coreo#performed
@@ -354,12 +338,6 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                             rdfs:label "hasSkill"@en .
 
 
-###  http://purl.org/coreo#socialAgentIsComponentOfAgent
-:socialAgentIsComponentOfAgent rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf gufo:isComponentOf ;
-                               rdfs:range :Agent .
-
-
 ###  http://purl.org/coreo#specializes
 :specializes rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :specializes_1 ;
@@ -407,8 +385,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 ###  http://purl.org/coreo#standsIn
 :standsIn rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf gufo:standsIn ;
-          rdfs:domain :CompetenceContext ;
-          rdfs:range :Resource ;
+          rdfs:domain :Resource ;
+          rdfs:range :CompetenceContext ;
           rdfs:comment "Details the coreo:Resource that stands in a coreo:CompetenceContext"@en ;
           rdfs:label "standsInContext"@en .
 
@@ -416,8 +394,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 ###  http://purl.org/coreo#standsIn_1
 :standsIn_1 rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf gufo:standsIn ;
-            rdfs:domain :CompetenceContext ;
-            rdfs:range :TaskInput ;
+            rdfs:domain :Artifact ;
+            rdfs:range :CompetenceContext ;
             rdfs:comment "Details the coreo:Artifact that stands in a coreo:CompetenceContext"@en ;
             rdfs:label "standsInContext"@en .
 
@@ -425,8 +403,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 ###  http://purl.org/coreo#standsIn_2
 :standsIn_2 rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf gufo:standsIn ;
-            rdfs:domain :CompetenceOutcome ;
-            rdfs:range :TaskOutput ;
+            rdfs:domain :Artifact ;
+            rdfs:range :CompetenceOutcome ;
             rdfs:comment "Details the coreo:Artifact that stands in a coreo:CompetenceOutcome"@en ;
             rdfs:label "standsInOutcome"@en .
 
@@ -445,15 +423,17 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                  rdfs:subPropertyOf gufo:manifestedIn ;
                  rdfs:domain :HumanAspect ;
                  rdfs:range :HumanTask ;
-                 rdfs:label "was manifested in"@en .
+                 rdfs:comment "Identifies a coreo:HumanTask in which the coreo:HumanAspect is manifested."@en ;
+                 rdfs:label "wasManifestedInTask"@en .
 
 
 ###  http://purl.org/coreo#wasManifestedIn_1
 :wasManifestedIn_1 rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf gufo:manifestedIn ;
-                   rdfs:domain :HumanTask ;
-                   rdfs:range :HumanCapability ;
-                   rdfs:label "was manifested in"@en .
+                   rdfs:domain :HumanCapability ;
+                   rdfs:range :HumanTask ;
+                   rdfs:comment "Identifies a coreo:HumanTask in which the coreo:HumanCapability is manifested."@en ;
+                   rdfs:label "wasManifestedIn"@en .
 
 
 ###  http://purl.org/coreo#wasUsedIn
@@ -512,14 +492,8 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :CompetenceContext rdf:type owl:Class ;
                    rdfs:subClassOf gufo:Situation ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty :activates ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :PersonalCompetence
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty :competenceContextContributedToTriggerHumanTask ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :HumanTask
+                                     owl:someValuesFrom :HumanTask
                                    ] .
 
 
@@ -527,7 +501,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :CompetenceOutcome rdf:type owl:Class ;
                    rdfs:subClassOf gufo:Situation ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty :competenceOutcomeBroughtAboutHumanTask ;
+                                     owl:onProperty :broughtAboutHumanTask ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass :HumanTask
                                    ] .
@@ -548,7 +522,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
              rdfs:subClassOf gufo:IntrinsicMode ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :inheresIn_2 ;
-                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                owl:onClass :Person
                              ] .
 
@@ -573,18 +547,17 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                                      ] ;
                  rdfs:subClassOf :HumanAspect ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty [ owl:inverseOf :wasManifestedIn_1
-                                                  ] ;
+                                   owl:onProperty :wasManifestedIn_1 ;
                                    owl:someValuesFrom :HumanTask
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :inheresIn ;
-                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :Proficiency
+                                   owl:onProperty [ owl:inverseOf :inheresIn
+                                                  ] ;
+                                   owl:someValuesFrom :Proficiency
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :inheresIn_1 ;
-                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                    owl:onClass :Person
                                  ] .
 
@@ -629,7 +602,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
                              owl:onClass :CompetenceContext
                            ] ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty [ owl:inverseOf :competenceOutcomeBroughtAboutHumanTask
+                             owl:onProperty [ owl:inverseOf :broughtAboutHumanTask
                                             ] ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onClass :CompetenceOutcome
@@ -680,13 +653,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/coreo#PersonalCompetence
 :PersonalCompetence rdf:type owl:Class ;
-                    rdfs:subClassOf :HumanCapability ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty [ owl:inverseOf :activates
-                                                     ] ;
-                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :CompetenceContext
-                                    ] ;
+                    rdfs:subClassOf :HumanCapability ;
                     owl:disjointWith :Skill .
 
 
@@ -699,8 +666,7 @@ gufo:categorizes rdf:type owl:AnnotationProperty .
 :Proficiency rdf:type owl:Class ;
              rdfs:subClassOf gufo:Quality ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty [ owl:inverseOf :inheresIn
-                                              ] ;
+                               owl:onProperty :inheresIn ;
                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                owl:onClass :HumanCapability
                              ] .
@@ -1161,8 +1127,8 @@ Examples include the object kinds \"Car\", \"Person\", \"Apple\""""@en ;
 :TaskOutcome rdfs:label "Task Outcome"@en .
 
 
-:TaskOutput rdfs:label "TaskOutput"@en ;
-            rdfs:comment "Artifact created or changed in a task as manifestation of a human capability"@en .
+:TaskOutput rdfs:comment "Artifact created or changed in a task as manifestation of a human capability"@en ;
+            rdfs:label "TaskOutput"@en .
 
 
 :TaskType rdfs:comment """A gufo:Type whose instances are coreo:Task. 
