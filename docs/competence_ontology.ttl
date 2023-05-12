@@ -16,11 +16,11 @@
 <https://orcid.org/0000-0002-3452-553X>"""@en ;
                          <http://purl.org/dc/elements/1.1/title> "Core-o: Competence Reference Ontology"@en ;
                          <http://purl.org/dc/terms/bibliographicCitation> "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
-                         <http://purl.org/dc/terms/created> "\"2021-06-01\""@en ;
+                         <http://purl.org/dc/terms/created> "2023-05-08"^^xsd:date ;
                          <http://purl.org/dc/terms/description> "An ontology to describe competences and human capabilities"@en ;
                          <http://purl.org/dc/terms/issued> "2023-05-08"^^xsd:date ;
                          <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode"^^xsd:anyURI ;
-                         <http://purl.org/dc/terms/modified> "\"2023-04-08\""@en ;
+                         <http://purl.org/dc/terms/modified> "2023-05-12"^^xsd:date ;
                          <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"@en ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "coreo"@en ;
                          <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/coreo"@en ;
