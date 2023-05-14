@@ -5,10 +5,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
 @base <http://purl.org/coreo> .
 
-<http://purl.org/coreo> rdf:type owl:Ontology ;
+<http://purl.org/coreo> rdf:type owl:Ontology, voaf:Vocabulary ;
                          owl:versionIRI <http://purl.org/coreo/1.0.0> ;
+                         owl:versionInfo "1.0.0"@en ;
                          owl:imports <http://purl.org/nemo/gufo#/1.0.0> ;
                          <http://purl.org/dc/elements/1.1/creator> """<https://orcid.org/0009-0006-6051-2165>,
 <https://orcid.org/0000-0002-9819-3781>,
@@ -42,9 +45,7 @@ R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Compete
 This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>.
 
 
-For the source repository, see: <https://github.com/core-o/ontology>"""@en ;
-                         owl:versionInfo "1.0.0"@en ;
-                         <https://www.w3.org/1999/02/22-rdf-syntax-ns#type> "http://purl.org/vocommons/voaf#Vocabulary"@en .
+For the source repository, see: <https://github.com/core-o/ontology>"""@en .
 
 #################################################################
 #    Annotation properties
