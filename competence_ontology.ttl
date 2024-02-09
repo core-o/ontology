@@ -30,6 +30,7 @@
                          dct:modified "2024-02-01" ;
                          dct:publisher <https://nemo.inf.ufes.br/> ,
                                        <https://www.utwente.nl/eemcs/scs/> ;
+                         dct:source <https://doi.org/10.1109/EDOC52215.2021.00018>, <https://doi.org/10.1007/978-3-031-26886-1_12> ;
                          dct:title "Core-o: Competence Reference Ontology"@en ;
                          bibo:doi "https://zenodo.org/doi/10.5281/zenodo.10609609"^^xsd:anyURI ;
                          vann:preferredNamespacePrefix "coreo" ;
