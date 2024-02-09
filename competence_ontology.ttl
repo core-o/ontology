@@ -1,38 +1,42 @@
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix coreo: <http://purl.org/coreo#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix coreo: <http://purl.org/coreo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://purl.org/coreo> .
 
 <http://purl.org/coreo> rdf:type owl:Ontology ;
-                         owl:versionIRI <http://purl.org/coreo/1.1.0> ;
+                         bibo:doi "https://zenodo.org/doi/10.5281/zenodo.10609609"^^xsd:anyURI ;
+                         dcat:landingPage <http://purl.org/coreo/git> ;
                          dct:bibliographicCitation "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
                          dct:contributor <https://orcid.org/0000-0003-2736-7817> ;
                          dct:created "2023-05-08"^^xsd:date ;
-                         dct:creator <https://orcid.org/0000-0002-3452-553X> ,
-                                     <https://orcid.org/0000-0002-5385-5761> ,
-                                     <https://orcid.org/0000-0002-9819-3781> ,
-                                     <https://orcid.org/0009-0006-6051-2165> ;
+                         dct:creator <https://orcid.org/0000-0002-3452-553X> , <https://orcid.org/0000-0002-5385-5761> , <https://orcid.org/0000-0002-9819-3781> , <https://orcid.org/0009-0006-6051-2165> ;
                          dct:description "An ontology to describe competences and human capabilities"@en ;
                          dct:identifier "http://purl.org/coreo/"^^xsd:anyURI ;
                          dct:issued "2023-05-08"^^xsd:date ;
                          dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
                          dct:license "https://creativecommons.org/licenses/by/4.0/legalcode"^^xsd:anyURI ;
                          dct:modified "2024-02-01" ;
-                         dct:publisher <https://nemo.inf.ufes.br/> ,
-                                       <https://www.utwente.nl/eemcs/scs/> ;
+                         dct:publisher <https://nemo.inf.ufes.br/> , <https://www.utwente.nl/eemcs/scs/> ;
                          dct:source <https://doi.org/10.1109/EDOC52215.2021.00018>, <https://doi.org/10.1007/978-3-031-26886-1_12> ;
                          dct:title "Core-o: Competence Reference Ontology"@en ;
-                         bibo:doi "https://zenodo.org/doi/10.5281/zenodo.10609609"^^xsd:anyURI ;
+                         foaf:depiction <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_competence_type.png> , <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_personal_competence.png> ;
+                         foaf:homepage <http://purl.org/coreo/doc> ;
+                         foaf:logo <https://raw.githubusercontent.com/core-o/ontology/main/docs/coreo-logo.png> ;
+                         owl:priorVersion <http://purl.org/coreo/v1.0.0> ;
+                         owl:versionInfo "1.1.0"@en ;
+                         owl:versionIRI <http://purl.org/coreo/1.1.0> ;
+                         sw:status "specification" ;
                          vann:preferredNamespacePrefix "coreo" ;
                          vann:preferredNamespaceUri "http://purl.org/coreo#"^^xsd:anyURI ;
                          rdfs:comment """Core-O is a well-founded competence reference ontology that accounts for competence-related elements such as knowledge, attitudes, and skills; also countenance their performance---related to tasks, their context, and outcomes---as well as their evolution over time (proficiency). This ontology is based on the Unified Foundational Ontology (Guizzardi, 2005), more specifically using gUFO (gentle UFO), a UFO-based lightweight ontology.
@@ -53,14 +57,7 @@ R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Compete
 This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>.
 
 
-For the source repository, see: <http://purl.org/coreo/git>"""@en ;
-                         owl:priorVersion <http://purl.org/coreo/v1.0.0> ;
-                         owl:versionInfo "1.1.0"@en ;
-                         dcat:landingPage <http://purl.org/coreo/git> ;
-                         foaf:depiction <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_competence_type.png> ,
-                                        <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_personal_competence.png> ;
-                         foaf:homepage <http://purl.org/coreo/doc> ;
-                         foaf:logo <https://raw.githubusercontent.com/core-o/ontology/main/docs/coreo-logo.png> .
+For the source repository, see: <http://purl.org/coreo/git>"""@en .
 
 
 #################################################################
