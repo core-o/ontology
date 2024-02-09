@@ -7,7 +7,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -36,7 +35,6 @@
                          owl:priorVersion <http://purl.org/coreo/v1.0.0> ;
                          owl:versionInfo "1.1.0"@en ;
                          owl:versionIRI <http://purl.org/coreo/1.1.0> ;
-                         sw:status "specification" ;
                          vann:preferredNamespacePrefix "coreo" ;
                          vann:preferredNamespaceUri "http://purl.org/coreo#"^^xsd:anyURI ;
                          rdfs:comment """Core-O is a well-founded competence reference ontology that accounts for competence-related elements such as knowledge, attitudes, and skills; also countenance their performance---related to tasks, their context, and outcomes---as well as their evolution over time (proficiency). This ontology is based on the Unified Foundational Ontology (Guizzardi, 2005), more specifically using gUFO (gentle UFO), a UFO-based lightweight ontology.
