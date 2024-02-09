@@ -1,36 +1,38 @@
-@prefix coreo: <http://purl.org/coreo#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix coreo: <http://purl.org/coreo#> .
 @base <http://purl.org/coreo> .
 
 <http://purl.org/coreo> rdf:type owl:Ontology ;
-                         dcat:landingPage <http://purl.org/coreo/git> ;
+                         owl:versionIRI <http://purl.org/coreo/1.1.0> ;
                          dct:bibliographicCitation "R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Competence Reference Ontology\\\", 2023, http://purl.org/coreo"@en ;
-                         dct:contributor <https://orcid.org/0000-0003-2736-7817>;
+                         dct:contributor <https://orcid.org/0000-0003-2736-7817> ;
                          dct:created "2023-05-08"^^xsd:date ;
-                         dct:creator <https://orcid.org/0009-0006-6051-2165>, <https://orcid.org/0000-0002-9819-3781>, <https://orcid.org/0000-0002-5385-5761>, <https://orcid.org/0000-0002-3452-553X>;
+                         dct:creator <https://orcid.org/0000-0002-3452-553X> ,
+                                     <https://orcid.org/0000-0002-5385-5761> ,
+                                     <https://orcid.org/0000-0002-9819-3781> ,
+                                     <https://orcid.org/0009-0006-6051-2165> ;
                          dct:description "An ontology to describe competences and human capabilities"@en ;
                          dct:identifier "http://purl.org/coreo/"^^xsd:anyURI ;
                          dct:issued "2023-05-08"^^xsd:date ;
-                         dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;                         
+                         dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
                          dct:license "https://creativecommons.org/licenses/by/4.0/legalcode"^^xsd:anyURI ;
                          dct:modified "2024-02-01" ;
-                         dct:publisher <https://www.utwente.nl/eemcs/scs/>, <https://nemo.inf.ufes.br/> ;
+                         dct:publisher <https://nemo.inf.ufes.br/> ,
+                                       <https://www.utwente.nl/eemcs/scs/> ;
                          dct:title "Core-o: Competence Reference Ontology"@en ;
-                         foaf:homepage <http://purl.org/coreo/doc> ;
-                         owl:priorVersion <http://purl.org/coreo/v1.0.0> ;
-                         owl:versionInfo "1.0.1"@en ;
-                         owl:versionIRI <http://purl.org/coreo/1.0.1> ;
-                         vann:preferredNamespacePrefix "coreo";
+                         bibo:doi "https://zenodo.org/doi/10.5281/zenodo.10609609"^^xsd:anyURI ;
+                         vann:preferredNamespacePrefix "coreo" ;
                          vann:preferredNamespaceUri "http://purl.org/coreo#"^^xsd:anyURI ;
                          rdfs:comment """Core-O is a well-founded competence reference ontology that accounts for competence-related elements such as knowledge, attitudes, and skills; also countenance their performance---related to tasks, their context, and outcomes---as well as their evolution over time (proficiency). This ontology is based on the Unified Foundational Ontology (Guizzardi, 2005), more specifically using gUFO (gentle UFO), a UFO-based lightweight ontology.
 The ontology was based on these works: (CALHAU et al., 2021) and (CALHAU et al., 2023)
@@ -50,8 +52,14 @@ R. F. Calhau, J. P. A. Almeida, T. P. Sales, G. Guizzardi, \\\"Core-O: A Compete
 This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>.
 
 
-For the source repository, see: <http://purl.org/coreo/git>"""@en .
-
+For the source repository, see: <http://purl.org/coreo/git>"""@en ;
+                         owl:priorVersion <http://purl.org/coreo/v1.0.0> ;
+                         owl:versionInfo "1.1.0"@en ;
+                         dcat:landingPage <http://purl.org/coreo/git> ;
+                         foaf:depiction <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_competence_type.png> ,
+                                        <https://raw.githubusercontent.com/core-o/ontology/main/docs/ontouml_personal_competence.png> ;
+                         foaf:homepage <http://purl.org/coreo/doc> ;
+                         foaf:logo <https://raw.githubusercontent.com/core-o/ontology/main/docs/coreo-logo.png> .
 
 
 #################################################################
@@ -66,73 +74,36 @@ coreo:bringsAbout rdf:type owl:ObjectProperty ;
                   rdfs:label "bringsAbout"@en .
 
 
-###  http://purl.org/coreo#broughtAboutHumanTask
-coreo:broughtAboutHumanTask rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf gufo:broughtAbout ;
-                            rdfs:domain coreo:CompetenceOutcome ;
-                            rdfs:range coreo:HumanTask ;
-                            rdfs:label ""@en .
-
-
-###  http://purl.org/coreo#capabilityRequiringRoleHasField
-coreo:capabilityRequiringRoleHasField rdf:type owl:ObjectProperty ;
-                                      rdfs:domain coreo:CapabilityRequiringRole ;
-                                      rdfs:range coreo:Field ;
-                                      rdfs:comment "Describes the field of a coreo:CapabilityRequiringRole"@en ;
-                                      rdfs:label "hasField"@en .
-
-
 ###  http://purl.org/coreo#characterizedBy
 coreo:characterizedBy rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf coreo:describedBy ;
                       rdfs:domain coreo:ArtifactType ;
                       rdfs:range coreo:MomentType ;
                       rdfs:comment "Relationship used to detail a coreo:ArtifactType"@en ;
                       rdfs:label "characterizedBy"@en .
 
 
-###  http://purl.org/coreo#competenceContextContributedToTriggerHumanTask
-coreo:competenceContextContributedToTriggerHumanTask rdf:type owl:ObjectProperty ;
-                                                     rdfs:subPropertyOf gufo:contributedToTrigger ;
-                                                     rdfs:domain coreo:CompetenceContext ;
-                                                     rdfs:range coreo:HumanTask ;
-                                                     rdfs:comment "Identifies a coreo:HumanTask that the coreo:CompetenceContext contributed to trigger."@en ;
-                                                     rdfs:label "activatesTask"@en .
+###  http://purl.org/coreo#concernsArtifact
+coreo:concernsArtifact rdf:type owl:ObjectProperty ;
+                       rdfs:domain coreo:TaskType ;
+                       rdfs:range coreo:ArtifactType ;
+                       rdfs:comment "Relationship used to detail a coreo:TaskType"@en ;
+                       rdfs:label "concernsArtifact"@en .
 
 
-###  http://purl.org/coreo#concerns
-coreo:concerns rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf coreo:describedBy ;
-               rdfs:domain coreo:TaskType ;
-               rdfs:range coreo:ArtifactType ;
-               rdfs:comment "Relationship used to detail a coreo:TaskType"@en ;
-               rdfs:label "concernsArtifact"@en .
+###  http://purl.org/coreo#concernsResource
+coreo:concernsResource rdf:type owl:ObjectProperty ;
+                       rdfs:domain coreo:TaskType ;
+                       rdfs:range coreo:ResourceType ;
+                       rdfs:comment "Relationship used to detail a coreo:TaskType"@en ;
+                       rdfs:label "concernsResource"@en .
 
 
-###  http://purl.org/coreo#concerns_1
-coreo:concerns_1 rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf coreo:describedBy ;
-                 rdfs:domain coreo:TaskType ;
-                 rdfs:range coreo:ResourceType ;
-                 rdfs:comment "Relationship used to detail a coreo:TaskType"@en ;
-                 rdfs:label "concernsResource"@en .
-
-
-###  http://purl.org/coreo#constitutes
-coreo:constitutes rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:constitutesType ;
-                  rdfs:domain coreo:HumanAspectType ;
-                  rdfs:range coreo:HumanAspectType ;
-                  rdfs:comment "Describes the constitutive relationship between coreo:HumanAspectTypes manifested as parthood relationships between their instances"@en ;
-                  rdfs:label "constitutesAspect"@en .
-
-
-###  http://purl.org/coreo#constitutesType
-coreo:constitutesType rdf:type owl:ObjectProperty ;
-                      rdfs:domain gufo:Type ;
-                      rdfs:range gufo:Type ;
-                      rdfs:comment "Describes the constitutive relationship between types manifested as parthood relationships between their instances"@en ;
-                      rdfs:label "constitutesType"@en .
+###  http://purl.org/coreo#constitutesAspect
+coreo:constitutesAspect rdf:type owl:ObjectProperty ;
+                        rdfs:domain coreo:HumanAspectType ;
+                        rdfs:range coreo:HumanAspectType ;
+                        rdfs:comment "Describes the constitutive relationship between coreo:HumanAspectTypes manifested as parthood relationships between their instances"@en ;
+                        rdfs:label "constitutesAspect"@en .
 
 
 ###  http://purl.org/coreo#contributesTo
@@ -145,71 +116,50 @@ coreo:contributesTo rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/coreo#definedInTermsOf
 coreo:definedInTermsOf rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf coreo:describedBy ;
                        rdfs:domain coreo:HumanCapabilityType ;
                        rdfs:range coreo:TaskType ;
                        rdfs:comment "Relationship used to detail a coreo:HumanCapabilityType"@en ;
                        rdfs:label "definedInTermsOf"@en .
 
 
-###  http://purl.org/coreo#dependsOn
-coreo:dependsOn rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf coreo:dependsOnType ;
-                rdfs:domain coreo:TaskType ;
-                rdfs:range coreo:TaskType ;
-                rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
-                rdfs:label "dependsOnTask"@en .
+###  http://purl.org/coreo#dependsOnArtifact
+coreo:dependsOnArtifact rdf:type owl:ObjectProperty ;
+                        rdfs:domain coreo:ArtifactType ;
+                        rdfs:range coreo:ArtifactType ;
+                        rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
+                        rdfs:label "dependsOnArtifact"@en .
 
 
-###  http://purl.org/coreo#dependsOnType
-coreo:dependsOnType rdf:type owl:ObjectProperty ;
-                    rdfs:domain gufo:Type ;
-                    rdfs:range gufo:Type ;
+###  http://purl.org/coreo#dependsOnHumanAspect
+coreo:dependsOnHumanAspect rdf:type owl:ObjectProperty ;
+                           rdfs:domain coreo:HumanAspectType ;
+                           rdfs:range coreo:HumanAspectType ;
+                           rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
+                           rdfs:label "dependsOnHumanAspect"@en .
+
+
+###  http://purl.org/coreo#dependsOnRole
+coreo:dependsOnRole rdf:type owl:ObjectProperty ;
+                    rdfs:domain coreo:CapabilityRequiringRole ;
+                    rdfs:range coreo:CapabilityRequiringRole ;
                     rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
-                    rdfs:label "dependsOnType"@en .
+                    rdfs:label "dependsOnRole"@en .
 
 
-###  http://purl.org/coreo#dependsOn_1
-coreo:dependsOn_1 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:dependsOnType ;
-                  rdfs:domain coreo:ArtifactType ;
-                  rdfs:range coreo:ArtifactType ;
-                  rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
-                  rdfs:label "dependsOnArtifact"@en .
+###  http://purl.org/coreo#dependsOnTask
+coreo:dependsOnTask rdf:type owl:ObjectProperty ;
+                    rdfs:domain coreo:TaskType ;
+                    rdfs:range coreo:TaskType ;
+                    rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
+                    rdfs:label "dependsOnTask"@en .
 
 
-###  http://purl.org/coreo#dependsOn_2
-coreo:dependsOn_2 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:dependsOnType ;
-                  rdfs:domain coreo:HumanAspectType ;
-                  rdfs:range coreo:HumanAspectType ;
-                  rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
-                  rdfs:label "dependsOnHumanAspect"@en .
-
-
-###  http://purl.org/coreo#dependsOn_3
-coreo:dependsOn_3 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:dependsOnType ;
-                  rdfs:domain coreo:CapabilityRequiringRole ;
-                  rdfs:range coreo:CapabilityRequiringRole ;
-                  rdfs:comment "Describes the dependence relationship between types manifested as dependence relationships between their instances"@en ;
-                  rdfs:label "dependsOnRole"@en .
-
-
-###  http://purl.org/coreo#describedBy
-coreo:describedBy rdf:type owl:ObjectProperty ;
-                  rdfs:domain gufo:Type ;
-                  rdfs:range gufo:Type ;
-                  rdfs:comment "Relationship used to detail a type"@en ;
-                  rdfs:label "describedBy"@en .
-
-
-###  http://purl.org/coreo#enables
-coreo:enables rdf:type owl:ObjectProperty ;
-              rdfs:domain coreo:HumanCapabilityType ;
-              rdfs:range gufo:SituationType ;
-              rdfs:comment "Relationship used to detail types of contexts that activates HumanCapabilityTypes"@en ;
-              rdfs:label "enablesSituationType"@en .
+###  http://purl.org/coreo#enablesSituationType
+coreo:enablesSituationType rdf:type owl:ObjectProperty ;
+                           rdfs:domain coreo:HumanCapabilityType ;
+                           rdfs:range gufo:SituationType ;
+                           rdfs:comment "Relationship used to detail types of contexts that activates HumanCapabilityTypes"@en ;
+                           rdfs:label "enablesSituationType"@en .
 
 
 ###  http://purl.org/coreo#evidencedBy
@@ -220,67 +170,12 @@ coreo:evidencedBy rdf:type owl:ObjectProperty ;
                   rdfs:label "evidencedBy"@en .
 
 
-###  http://purl.org/coreo#inheresIn
-coreo:inheresIn rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:inheresIn ;
-                rdf:type owl:FunctionalProperty ,
-                         owl:AsymmetricProperty ,
-                         owl:IrreflexiveProperty ;
-                rdfs:domain coreo:Proficiency ;
-                rdfs:range coreo:HumanCapability ;
-                rdfs:comment "relates a coreo:Proficiency to the correspondent coreo:HumanCapability"@en ;
-                rdfs:label "inheresInHumanCapability"@en .
-
-
-###  http://purl.org/coreo#inheresIn_1
-coreo:inheresIn_1 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:inheresIn_2 ;
-                  rdf:type owl:FunctionalProperty ,
-                           owl:AsymmetricProperty ,
-                           owl:IrreflexiveProperty ;
-                  rdfs:domain coreo:HumanCapability ;
-                  rdfs:range coreo:Person ;
-                  rdfs:comment "relates the coreo:HumanCapability to the correspondent coreo:Person"@en ;
-                  rdfs:label "CapabilityInheresInPerson"@en .
-
-
-###  http://purl.org/coreo#inheresIn_2
-coreo:inheresIn_2 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf gufo:inheresIn ;
-                  rdf:type owl:FunctionalProperty ,
-                           owl:AsymmetricProperty ,
-                           owl:IrreflexiveProperty ;
-                  rdfs:domain coreo:HumanAspect ;
-                  rdfs:range coreo:Person ;
-                  rdfs:comment "relates the coreo:HumanAspect to the correspondent coreo:Person"@en ;
-                  rdfs:label "inheresInPerson"@en .
-
-
 ###  http://purl.org/coreo#isDefinedBy
 coreo:isDefinedBy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:describedBy ;
                   rdfs:domain coreo:CapabilityRequiringRole ;
                   rdfs:range coreo:HumanCapabilityType ;
                   rdfs:comment "Relationship used to detail a coreo:HumanCapabilityType"@en ;
                   rdfs:label "isDefinedBy"@en .
-
-
-###  http://purl.org/coreo#performed
-coreo:performed rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:participatedIn ;
-                rdfs:domain coreo:Person ;
-                rdfs:range coreo:HumanTask ;
-                rdfs:comment "participation of a person in a human task"@en ;
-                rdfs:label "performed"@en .
-
-
-###  http://purl.org/coreo#personalCompetenceHasAttitude
-coreo:personalCompetenceHasAttitude rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf gufo:isAspectProperPartOf ;
-                                    rdfs:domain coreo:PersonalCompetence ;
-                                    rdfs:range coreo:Attitude ;
-                                    rdfs:comment "parthood relation between a competence and attitude"@en ;
-                                    rdfs:label "hasAttitude"@en .
 
 
 ###  http://purl.org/coreo#personalCompetenceHasHumanAspect
@@ -292,15 +187,6 @@ coreo:personalCompetenceHasHumanAspect rdf:type owl:ObjectProperty ;
                                        rdfs:label "hasHumanAspect"@en .
 
 
-###  http://purl.org/coreo#personalCompetenceHasKnowledge
-coreo:personalCompetenceHasKnowledge rdf:type owl:ObjectProperty ;
-                                     rdfs:subPropertyOf gufo:isAspectProperPartOf ;
-                                     rdfs:domain coreo:PersonalCompetence ;
-                                     rdfs:range coreo:Knowledge ;
-                                     rdfs:comment "parthood relation between a competence and knowledge"@en ;
-                                     rdfs:label "hasKnowledge"@en .
-
-
 ###  http://purl.org/coreo#personalCompetenceHasPersonalCompetence
 coreo:personalCompetenceHasPersonalCompetence rdf:type owl:ObjectProperty ;
                                               rdfs:subPropertyOf gufo:isAspectProperPartOf ;
@@ -310,129 +196,45 @@ coreo:personalCompetenceHasPersonalCompetence rdf:type owl:ObjectProperty ;
                                               rdfs:label "hasCompetence"@en .
 
 
-###  http://purl.org/coreo#personalCompetenceHasSkill
-coreo:personalCompetenceHasSkill rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf gufo:isAspectProperPartOf ;
-                                 rdfs:domain coreo:PersonalCompetence ;
-                                 rdfs:range coreo:Skill ;
-                                 rdfs:comment "parthood relation between a competence and skill"@en ;
-                                 rdfs:label "hasSkill"@en .
+###  http://purl.org/coreo#specializesArtifact
+coreo:specializesArtifact rdf:type owl:ObjectProperty ;
+                          rdfs:domain coreo:ArtifactType ;
+                          rdfs:range coreo:ArtifactType ;
+                          rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
+                          rdfs:label "specializesArtifact"@en .
 
 
-###  http://purl.org/coreo#specializes
-coreo:specializes rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf coreo:specializes_1 ;
-                  rdfs:domain coreo:ArtifactType ;
-                  rdfs:range coreo:ArtifactType ;
-                  rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
-                  rdfs:label "specializesArtifact"@en .
+###  http://purl.org/coreo#specializesAspect
+coreo:specializesAspect rdf:type owl:ObjectProperty ;
+                        rdfs:domain coreo:HumanAspectType ;
+                        rdfs:range coreo:HumanAspectType ;
+                        rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
+                        rdfs:label "specializesAspect"@en .
 
 
-###  http://purl.org/coreo#specializes_1
-coreo:specializes_1 rdf:type owl:ObjectProperty ;
-                    rdfs:domain gufo:Type ;
-                    rdfs:range gufo:Type ;
-                    rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
-                    rdfs:label "specializes"@en .
+###  http://purl.org/coreo#specializesRole
+coreo:specializesRole rdf:type owl:ObjectProperty ;
+                      rdfs:domain coreo:CapabilityRequiringRole ;
+                      rdfs:range coreo:CapabilityRequiringRole ;
+                      rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
+                      rdfs:label "specializesRole"@en .
 
 
-###  http://purl.org/coreo#specializes_2
-coreo:specializes_2 rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf coreo:specializes_1 ;
-                    rdfs:domain coreo:HumanAspectType ;
-                    rdfs:range coreo:HumanAspectType ;
-                    rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
-                    rdfs:label "specializesAspect"@en .
-
-
-###  http://purl.org/coreo#specializes_3
-coreo:specializes_3 rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf coreo:specializes_1 ;
-                    rdfs:domain coreo:TaskType ;
-                    rdfs:range coreo:TaskType ;
-                    rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
-                    rdfs:label "specializesTask"@en .
-
-
-###  http://purl.org/coreo#specializes_4
-coreo:specializes_4 rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf coreo:specializes_1 ;
-                    rdfs:domain coreo:CapabilityRequiringRole ;
-                    rdfs:range coreo:CapabilityRequiringRole ;
-                    rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
-                    rdfs:label "specializesRole"@en .
+###  http://purl.org/coreo#specializesTask
+coreo:specializesTask rdf:type owl:ObjectProperty ;
+                      rdfs:domain coreo:TaskType ;
+                      rdfs:range coreo:TaskType ;
+                      rdfs:comment "specialization relation between types symbolizing the types that are instances of other type"@en ;
+                      rdfs:label "specializesTask"@en .
 
 
 ###  http://purl.org/coreo#standsIn
 coreo:standsIn rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf gufo:standsIn ;
-               rdfs:domain coreo:Resource ;
-               rdfs:range coreo:CompetenceContext ;
-               rdfs:comment "Details the coreo:Resource that stands in a coreo:CompetenceContext"@en ;
-               rdfs:label "standsInContext"@en .
-
-
-###  http://purl.org/coreo#standsIn_1
-coreo:standsIn_1 rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf gufo:standsIn ;
-                 rdfs:domain coreo:Artifact ;
-                 rdfs:range coreo:CompetenceContext ;
-                 rdfs:comment "Details the coreo:Artifact that stands in a coreo:CompetenceContext"@en ;
-                 rdfs:label "standsInContext"@en .
-
-
-###  http://purl.org/coreo#standsIn_2
-coreo:standsIn_2 rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf gufo:standsIn ;
-                 rdfs:domain coreo:Artifact ;
-                 rdfs:range coreo:CompetenceOutcome ;
-                 rdfs:comment "Details the coreo:Artifact that stands in a coreo:CompetenceOutcome"@en ;
-                 rdfs:label "standsInOutcome"@en .
-
-
-###  http://purl.org/coreo#wasGeneratedIn
-coreo:wasGeneratedIn rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf gufo:wasCreatedIn ;
-                     rdfs:domain coreo:TaskOutput ;
-                     rdfs:range coreo:HumanTask ;
-                     rdfs:comment "output generation from a coreo:HumanTask"@en ;
-                     rdfs:label "wasGeneratedIn"@en .
-
-
-###  http://purl.org/coreo#wasManifestedIn
-coreo:wasManifestedIn rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf gufo:manifestedIn ;
-                      rdfs:domain coreo:HumanAspect ;
-                      rdfs:range coreo:HumanTask ;
-                      rdfs:comment "Identifies a coreo:HumanTask in which the coreo:HumanAspect is manifested."@en ;
-                      rdfs:label "wasManifestedInTask"@en .
-
-
-###  http://purl.org/coreo#wasManifestedIn_1
-coreo:wasManifestedIn_1 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf gufo:manifestedIn ;
-                        rdfs:domain coreo:HumanCapability ;
-                        rdfs:range coreo:HumanTask ;
-                        rdfs:comment "Identifies a coreo:HumanTask in which the coreo:HumanCapability is manifested."@en ;
-                        rdfs:label "wasManifestedIn"@en .
-
-
-###  http://purl.org/coreo#wasUsedIn
-coreo:wasUsedIn rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:participatedIn ;
-                rdfs:domain coreo:TaskInput ;
-                rdfs:range coreo:HumanTask ;
-                rdfs:comment "usage of a artifact in a human task as input"@en ;
-                rdfs:label "wasUsedIn"@en .
-
-
-###  http://purl.org/coreo#wasUsedIn_1
-coreo:wasUsedIn_1 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf gufo:participatedIn ;
-                  rdfs:domain coreo:Resource ;
-                  rdfs:range coreo:HumanTask ;
-                  rdfs:comment "usage of an object in a human task as a resource"@en ;
-                  rdfs:label "wasUsedIn"@en .
+               rdfs:domain coreo:CompetenceOutcome ;
+               rdfs:range coreo:TaskOutput ;
+               rdfs:comment "Details the coreo:Artifact that stands in a coreo:CompetenceOutcome"@en ;
+               rdfs:label "standsInOutcome"@en .
 
 
 #################################################################
@@ -441,254 +243,393 @@ coreo:wasUsedIn_1 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/coreo#Agent
 coreo:Agent rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Object .
+            rdfs:subClassOf gufo:Object ;
+            rdfs:comment "Agents are objects that perceive events and perform actions based on their intentions"@en ;
+            rdfs:label "Agent"@en .
 
 
 ###  http://purl.org/coreo#Artifact
 coreo:Artifact rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Object .
+               rdfs:subClassOf gufo:Object ;
+               rdfs:comment """Human-made object produced, used, or changed in task as a result of human capabilities
+                            E.G., Web form code (produced by John)""" ;
+               rdfs:label "Artifact"@en .
 
 
 ###  http://purl.org/coreo#ArtifactType
 coreo:ArtifactType rdf:type owl:Class ;
-                   rdfs:subClassOf coreo:SubstantialType .
+                   rdfs:subClassOf gufo:ConcreteIndividualType ;
+                   gufo:categorizes coreo:Artifact ;
+                   rdfs:comment """A gufo:Type whose instances are coreo:Artifact. 
+Instances of coreo:ArtifactType are subclasses of coreo:Artifact.
+Examples include \"Web Form\", \"Class Diagram\", \"Painting\", a \"Sculpture\""""@en ;
+                   rdfs:label "ArtifactType"@en .
 
 
 ###  http://purl.org/coreo#Attitude
 coreo:Attitude rdf:type owl:Class ;
-               rdfs:subClassOf coreo:HumanAspect .
+               rdfs:subClassOf coreo:HumanAspect ;
+               rdfs:comment """Attitude is a tendency to act (or feel) in a given situation (Maze, 2011) inherent to an individual, based on assumptions, values, and beliefs (Maze, 2011). In general, definitions of attitude take into account the following characteristics: (i) mental state; (ii) values (beliefs, 
+emotions); and (iii) predisposition to act or behave (ALTMANN, 2008).
+E.g. John' accuracy, Paul' responsability, Mary' colaboration
+ALTMANN, Tanya K. Attitude: a concept analysis. In: Nursing forum. Malden, USA: Blackwell Publishing Inc, 2008. p. 144-150.
+MAZE, John R. The concept of attitude. In: Realism and Psychology. Brill, 2011. p. 183-230."""@en ;
+               rdfs:label "Attitude"@en .
 
 
 ###  http://purl.org/coreo#AttitudeType
 coreo:AttitudeType rdf:type owl:Class ;
-                   rdfs:subClassOf coreo:HumanAspectType .
+                   rdfs:subClassOf coreo:HumanAspectType ;
+                   rdfs:comment """A gufo:Type whose instances are coreo:Attitude. 
+Instances of coreo:AttitudeType are subclasses of coreo:Attitude.
+Examples include the coreo:HumanAttitude \"Collaboration\""""@en ;
+                   rdfs:label "AttitudeType"@en .
 
 
 ###  http://purl.org/coreo#CapabilityRequiringRole
 coreo:CapabilityRequiringRole rdf:type owl:Class ;
-                              rdfs:subClassOf gufo:Role .
+                              rdfs:subClassOf gufo:ConcreteIndividualType ;
+                              gufo:categorizes coreo:Person ;
+                              rdfs:comment "Represents an occupation (job position,  ob role), or function performed by a person and that requires a series of capability types. E.g., Software Engineer, Designer, Project Manager."@en ;
+                              rdfs:label "CapabilityRequiringRole"@en .
 
 
 ###  http://purl.org/coreo#CompetenceContext
 coreo:CompetenceContext rdf:type owl:Class ;
                         rdfs:subClassOf gufo:Situation ,
                                         [ rdf:type owl:Restriction ;
-                                          owl:onProperty coreo:competenceContextContributedToTriggerHumanTask ;
-                                          owl:someValuesFrom coreo:HumanTask
-                                        ] .
+                                          owl:onProperty gufo:contributedToTrigger ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass coreo:HumanTask
+                                        ] ;
+                        rdfs:comment "Corresponding to a physical situation (i.e., workspace, workplace) or temporal situation (i.e., project) some personal competence needs to be manifested, including all environmental conditions and resources. E.g., Laboratory, Factory, Room, etc."@en ;
+                        rdfs:label "CompetenceContext"@en .
 
 
 ###  http://purl.org/coreo#CompetenceOutcome
 coreo:CompetenceOutcome rdf:type owl:Class ;
-                        rdfs:subClassOf gufo:Situation .
+                        rdfs:subClassOf gufo:Situation ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty gufo:broughtAbout ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass coreo:HumanTask
+                                        ] ;
+                        rdfs:comment "It is related to the situation that was brought about by the competence manifestation, including all results and outputs. E.g. software deliverables, fixed system errors, client satisfaction, clean environment."@en ;
+                        rdfs:label "CompetenceOutcome"@en .
 
 
 ###  http://purl.org/coreo#Evidence
 coreo:Evidence rdf:type owl:Class ;
-               rdfs:subClassOf gufo:ConcreteIndividual .
-
-
-###  http://purl.org/coreo#Field
-coreo:Field rdf:type owl:Class ;
-            rdfs:subClassOf gufo:ConcreteIndividualType .
+               rdfs:subClassOf gufo:FunctionalComplex ;
+               rdfs:comment """Any object (social or not) used to prove a human capability. 
+E.G.  John's graduation certification in computer science,  Mary's project participation."""@en ;
+               rdfs:label "Evidence"@en .
 
 
 ###  http://purl.org/coreo#HumanAspect
 coreo:HumanAspect rdf:type owl:Class ;
                   rdfs:subClassOf gufo:IntrinsicMode ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty coreo:inheresIn_2 ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty gufo:inheresIn ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass coreo:Person
-                                  ] .
+                                  ] ;
+                  rdfs:comment "Aspects inherent to an individual. Includes human capabilities (skills and competences), knowledge, attidutes, and other characteristics (human qualities as age, gender, etc and human traits)."@en ;
+                  rdfs:label "HumanAspect"@en .
 
 
 ###  http://purl.org/coreo#HumanAspectPhase
 coreo:HumanAspectPhase rdf:type owl:Class ;
-                       rdfs:subClassOf coreo:HumanAspectType ,
-                                       gufo:Phase .
+                       rdfs:subClassOf coreo:HumanAspectType ;
+                       gufo:categorizes coreo:HumanAspect ;
+                       rdfs:comment "Represents the phase (or levels) that human aspect types (knowledge, attitude, skill, competence types) can have. E.g., beginner, intermediated, advanced."@en ;
+                       rdfs:label "HumanAspectPhase"@en .
 
 
 ###  http://purl.org/coreo#HumanAspectType
 coreo:HumanAspectType rdf:type owl:Class ;
-                      rdfs:subClassOf coreo:MomentType .
+                      rdfs:subClassOf coreo:MomentType ;
+                      gufo:categorizes coreo:HumanAspect ;
+                      rdfs:comment """A gufo:Type whose instances are coreo:HumanAspect. 
+Instances of coreo:HumanAspectType are subclasses of coreo:HumanAspect.
+Examples include the coreo:SkillType \"Java Programming\", the coreo:CompetenceType \"Software Development\", the coreo:HumanAttitude \"Collaboration\", the coreo:HumanKnowledge \"Quantum Physics\""""@en ;
+                      rdfs:label "HumanAspectType"@en .
 
 
 ###  http://purl.org/coreo#HumanCapability
 coreo:HumanCapability rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Class ;
-                                            owl:unionOf ( coreo:PersonalCompetence
-                                                          coreo:Skill
-                                                        )
-                                          ] ;
                       rdfs:subClassOf coreo:HumanAspect ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty coreo:wasManifestedIn_1 ;
+                                        owl:onProperty [ owl:inverseOf gufo:manifestedIn
+                                                       ] ;
                                         owl:someValuesFrom coreo:HumanTask
                                       ] ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty [ owl:inverseOf coreo:inheresIn
-                                                       ] ;
-                                        owl:someValuesFrom coreo:Proficiency
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty coreo:inheresIn_1 ;
-                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                        owl:onClass coreo:Person
-                                      ] .
+                                        owl:onProperty gufo:inheresIn ;
+                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass coreo:Proficiency
+                                      ] ;
+                      rdfs:comment "Human ability to perform some task in some situation, inherent to an individual. Includes skills and personal competences."@en ;
+                      rdfs:label "HumanCapability"@en .
 
 
 ###  http://purl.org/coreo#HumanCapabilityType
 coreo:HumanCapabilityType rdf:type owl:Class ;
-                          rdfs:subClassOf coreo:HumanAspectType .
+                          rdfs:subClassOf coreo:HumanAspectType ;
+                          gufo:categorizes coreo:HumanCapability ;
+                          rdfs:comment """A gufo:Type whose instances are dispositions. 
+
+Instances of coreo:HumanCapabilityType are subclasses of coreo:HumanCapability.
+Examples include the skill type of \"Java Programming\" and competence type of \"Software Development\""""@en ;
+                          rdfs:label "HumanCapabilityType"@en .
 
 
 ###  http://purl.org/coreo#HumanQuality
 coreo:HumanQuality rdf:type owl:Class ;
-                   rdfs:subClassOf coreo:HumanAspect .
+                   rdfs:subClassOf coreo:HumanAspect ;
+                   rdfs:comment "Qualities inherent to a person, e.g. age, gender, height, etc."@en ;
+                   rdfs:label "HumanQuality"@en .
 
 
 ###  http://purl.org/coreo#HumanTask
 coreo:HumanTask rdf:type owl:Class ;
                 rdfs:subClassOf gufo:Event ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:performed
-                                                 ] ;
-                                  owl:someValuesFrom coreo:Person
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:wasGeneratedIn
-                                                 ] ;
-                                  owl:someValuesFrom coreo:TaskOutput
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:wasManifestedIn
+                                  owl:onProperty [ owl:inverseOf gufo:manifestedIn
                                                  ] ;
                                   owl:someValuesFrom coreo:HumanAspect
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:wasUsedIn
+                                  owl:onProperty [ owl:inverseOf gufo:participatedIn
                                                  ] ;
-                                  owl:someValuesFrom coreo:TaskInput
+                                  owl:someValuesFrom coreo:Person
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:wasUsedIn_1
+                                  owl:onProperty [ owl:inverseOf gufo:participatedIn
                                                  ] ;
                                   owl:someValuesFrom coreo:Resource
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf coreo:competenceContextContributedToTriggerHumanTask
+                                  owl:onProperty [ owl:inverseOf gufo:participatedIn
+                                                 ] ;
+                                  owl:someValuesFrom coreo:TaskInput
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf gufo:contributedToTrigger
                                                  ] ;
                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                   owl:onClass coreo:CompetenceContext
-                                ] .
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf gufo:broughtAbout
+                                                 ] ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass coreo:CompetenceOutcome
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf gufo:wasCreatedIn
+                                                 ] ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass coreo:TaskOutput
+                                ] ;
+                rdfs:comment "Event performed by a person as a result of the manifestation of his/her human capabilities"@en ;
+                rdfs:label "HumanTask"@en .
 
 
 ###  http://purl.org/coreo#HumanTrait
 coreo:HumanTrait rdf:type owl:Class ;
-                 rdfs:subClassOf coreo:HumanAspect .
+                 rdfs:subClassOf coreo:HumanAspect ;
+                 rdfs:comment "Traits inherent to an individual, e.g. John's introversion, Paul's interest, Mary's hobbies"@en ;
+                 rdfs:label "HumanTrait"@en .
 
 
 ###  http://purl.org/coreo#Knowledge
 coreo:Knowledge rdf:type owl:Class ;
-                rdfs:subClassOf coreo:HumanAspect .
+                rdfs:subClassOf coreo:HumanAspect ;
+                rdfs:comment """Knowledge is typically associated with internal representations of facts, principles, or theories (WESTERA, 2001) by an individual. and that can be manifested through actions.
+E.G., Paul' quantum theory knowledge
+WESTERA, Wim. Competences in education: a confusion of tongues. Journal of Curriculum studies, v. 33, n. 1, p. 75-88, 2001."""@en ;
+                rdfs:label "Knowledge"@en .
 
 
 ###  http://purl.org/coreo#KnowledgeType
 coreo:KnowledgeType rdf:type owl:Class ;
-                    rdfs:subClassOf coreo:HumanAspectType .
+                    rdfs:subClassOf coreo:HumanAspectType ;
+                    rdfs:comment """A gufo:Type whose instances are coreo:Knowledge. 
+Instances of coreo:KnowledgeType are subclasses of coreo:Knowledge.
+Examples include the the coreo:KnowledgeType \"Quantum Physics\""""@en ;
+                    rdfs:label "KnowledgeType"@en .
 
 
 ###  http://purl.org/coreo#MomentType
 coreo:MomentType rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:EndurantType .
+                 rdfs:subClassOf gufo:ConcreteIndividualType ;
+                 rdfs:comment """A gufo:Type whose instances are aspects. 
+Instances of AspectType are subclasses of gufo:Aspect.
+Examples include the aspect kind \"age\", \"knowledge\", and \"mariage\""""@en ;
+                 rdfs:label "AspectType"@en .
 
 
 ###  http://purl.org/coreo#Object
 coreo:Object rdf:type owl:Class ;
-             rdfs:subClassOf gufo:FunctionalComplex .
+             rdfs:subClassOf gufo:FunctionalComplex ;
+             rdfs:comment "Corresponding to a substantial that is existentially independent in g UFO. E.g. Saturn planet, The Beatles, Pope Francis, Brazil country."@en ;
+             rdfs:label "Object"@en .
 
 
 ###  http://purl.org/coreo#Person
 coreo:Person rdf:type owl:Class ;
-             rdfs:subClassOf coreo:Agent ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty [ owl:inverseOf coreo:inheresIn_1
-                                              ] ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass coreo:HumanCapability
-                             ] .
+             rdfs:subClassOf coreo:Agent ;
+             rdfs:comment "Physical agent that are human being"@en ;
+             rdfs:label "Person"@en .
 
 
 ###  http://purl.org/coreo#PersonalCompetence
 coreo:PersonalCompetence rdf:type owl:Class ;
                          rdfs:subClassOf coreo:HumanCapability ;
-                         owl:disjointWith coreo:Skill .
+                         rdfs:comment """Competence is a human capability inherent to an individual and formed by the combination of perceptible characteristics, such as the ``well-known'' knowledge, skills, and attitudes (KSA) elements. 
+E.G. John's agile software development competence, Ronaldo's football playing competence"""@en ;
+                         rdfs:label "PersonalCompetence"@en .
 
 
 ###  http://purl.org/coreo#PersonalCompetenceType
 coreo:PersonalCompetenceType rdf:type owl:Class ;
-                             rdfs:subClassOf coreo:HumanCapabilityType .
+                             rdfs:subClassOf coreo:HumanCapabilityType ;
+                             gufo:categorizes coreo:PersonalCompetence ;
+                             rdfs:comment """A gufo:Type whose instances are coreo:PersonalCompetence. 
+Instances of coreo:CompetenceType are subclasses of coreo:PersonalCompetence.
+Examples include the competence type of \"Software Development\""""@en ,
+                                          "Represents a generic classification of personal competence from individuals. E.g. front-end development competence type, system engineering competence type."@en ;
+                             rdfs:label "CompetenceType"@en ,
+                                        "PersonalCompetenceType"@en .
+                                    
 
 
 ###  http://purl.org/coreo#Proficiency
 coreo:Proficiency rdf:type owl:Class ;
                   rdfs:subClassOf gufo:Quality ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty coreo:inheresIn ;
+                                    owl:onProperty [ owl:inverseOf gufo:inheresIn
+                                                   ] ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass coreo:HumanCapability
-                                  ] .
+                                  ] ;
+                  rdfs:comment "Intencity or deepness of a human capability. Can be related to level, degree, score, or other quality."@en ;
+                  rdfs:label "Proficiency"@en .
 
 
 ###  http://purl.org/coreo#Resource
 coreo:Resource rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Object .
+               rdfs:subClassOf gufo:Object ;
+               rdfs:comment """Any object used in a task by a person as manifestation of a human capability
+E.G. John's Integrated Development Environment (IDE)"""@en ;
+               rdfs:label "Resource"@en .
 
 
 ###  http://purl.org/coreo#ResourceType
 coreo:ResourceType rdf:type owl:Class ;
-                   rdfs:subClassOf coreo:SubstantialType .
+                   rdfs:subClassOf gufo:ConcreteIndividualType ;
+                   gufo:categorizes coreo:Resource ;
+                   rdfs:comment """A gufo:Type whose instances are coreo:Resource. 
+Instances of coreo:ResourceType are subclasses of coreo:Resource.
+Examples include \"Tool\", \"Software\", \"Hardware\""""@en ;
+                   rdfs:label "ResourceType"@en .
 
 
 ###  http://purl.org/coreo#Skill
 coreo:Skill rdf:type owl:Class ;
-            rdfs:subClassOf coreo:HumanCapability .
+            rdfs:subClassOf coreo:HumanCapability ;
+            rdfs:comment """Skill is a human capability of an individual to perform a task (discrete unit of work) well (RODRIGUES et al, 2021), not strongly related to a context. 
+E.G. John' programming skill, Pelé's kick skill
+RODRIGUES, Margarida; FERNÁNDEZ-MACÍAS, Enrique; SOSTERO, Matteo. A unified conceptual framework of tasks, skills and competences. JRC Working Papers Series on Labour, Education and Technology, 2021."""@en ;
+            rdfs:label "Skill"@en .
 
 
 ###  http://purl.org/coreo#SkillType
 coreo:SkillType rdf:type owl:Class ;
-                rdfs:subClassOf coreo:HumanCapabilityType .
-
-
-###  http://purl.org/coreo#SubstantialType
-coreo:SubstantialType rdf:type owl:Class ;
-                      rdfs:subClassOf gufo:EndurantType .
+                rdfs:subClassOf coreo:HumanCapabilityType ;
+                gufo:categorizes coreo:Skill ;
+                rdfs:comment """A gufo:Type whose instances are coreo:Skill. 
+Instances of coreo:SkillType are subclasses of coreo:Skill.
+Examples include the skill type of \"Java Programming\""""@en ;
+                rdfs:label "SkillType"@en .
 
 
 ###  http://purl.org/coreo#TaskInput
 coreo:TaskInput rdf:type owl:Class ;
-                rdfs:subClassOf coreo:Artifact .
+                rdfs:subClassOf coreo:Artifact ;
+                rdfs:comment "Artifact used in a task as manifestation of a human capability"@en ;
+                rdfs:label "TaskInput"@en .
 
 
 ###  http://purl.org/coreo#TaskOutput
 coreo:TaskOutput rdf:type owl:Class ;
-                 rdfs:subClassOf coreo:Artifact .
+                 rdfs:subClassOf coreo:Artifact ;
+                 rdfs:comment "Artifact created or changed in a task as manifestation of a human capability"@en ;
+                 rdfs:label "TaskOutput"@en .
 
 
 ###  http://purl.org/coreo#TaskType
 coreo:TaskType rdf:type owl:Class ;
-               rdfs:subClassOf gufo:EventType .
+               rdfs:subClassOf gufo:ConcreteIndividualType ;
+               gufo:categorizes coreo:HumanTask ;
+               rdfs:comment """A gufo:Type whose instances are coreo:Task. 
+Instances of coreo:TaskType are subclasses of coreo:Task.
+Examples include \"Develop a Software\", \"Perform a Interview\""""@en ;
+               rdfs:label "TaskType"@en .
+
+
+###  http://purl.org/nemo/gufo#Category
+gufo:Category rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#ConcreteIndividualType
+gufo:ConcreteIndividualType rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Event
+gufo:Event rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#EventType
+gufo:EventType rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#FunctionalComplex
+gufo:FunctionalComplex rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#IntrinsicMode
+gufo:IntrinsicMode rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Kind
+gufo:Kind rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Mixin
+gufo:Mixin rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Quality
+gufo:Quality rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#RoleMixin
+gufo:RoleMixin rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Situation
+gufo:Situation rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#SituationType
+gufo:SituationType rdf:type owl:Class .
 
 
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://purl.org/coreo
-<http://purl.org/coreo> rdf:type owl:NamedIndividual ,
-                                 voaf:Vocabulary .
-
 
 ###  http://purl.org/coreo#Agent
 coreo:Agent rdf:type owl:NamedIndividual ,
@@ -727,17 +668,9 @@ coreo:CompetenceOutcome rdf:type owl:NamedIndividual ,
                                  gufo:SituationType .
 
 
-###  http://purl.org/coreo#EndurantType
-coreo:EndurantType rdf:type owl:NamedIndividual .
-
-
 ###  http://purl.org/coreo#Evidence
 coreo:Evidence rdf:type owl:NamedIndividual ,
-                        gufo:Category .
-
-
-###  http://purl.org/coreo#Field
-coreo:Field rdf:type owl:NamedIndividual .
+                        gufo:Mixin .
 
 
 ###  http://purl.org/coreo#HumanAspect
@@ -755,7 +688,7 @@ coreo:HumanAspectType rdf:type owl:NamedIndividual .
 
 ###  http://purl.org/coreo#HumanCapability
 coreo:HumanCapability rdf:type owl:NamedIndividual ,
-                               gufo:Kind .
+                               gufo:RoleMixin .
 
 
 ###  http://purl.org/coreo#HumanCapabilityType
@@ -795,10 +728,6 @@ coreo:Object rdf:type owl:NamedIndividual ,
                       gufo:Category .
 
 
-###  http://purl.org/coreo#PerdurantType
-coreo:PerdurantType rdf:type owl:NamedIndividual .
-
-
 ###  http://purl.org/coreo#Person
 coreo:Person rdf:type owl:NamedIndividual ,
                       gufo:Kind .
@@ -806,20 +735,12 @@ coreo:Person rdf:type owl:NamedIndividual ,
 
 ###  http://purl.org/coreo#PersonalCompetence
 coreo:PersonalCompetence rdf:type owl:NamedIndividual ,
-                                  gufo:SubKind .
+                                  gufo:RoleMixin .
+                                  
 
 
 ###  http://purl.org/coreo#PersonalCompetenceType
 coreo:PersonalCompetenceType rdf:type owl:NamedIndividual .
-
-
-###  http://purl.org/coreo#Phase
-coreo:Phase rdf:type owl:NamedIndividual .
-
-
-###  http://purl.org/coreo#PhysicalAgent
-coreo:PhysicalAgent rdf:type owl:NamedIndividual ,
-                             gufo:Category .
 
 
 ###  http://purl.org/coreo#Proficiency
@@ -836,30 +757,14 @@ coreo:Resource rdf:type owl:NamedIndividual ,
 coreo:ResourceType rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/coreo#Role
-coreo:Role rdf:type owl:NamedIndividual .
-
-
-###  http://purl.org/coreo#SituationType
-coreo:SituationType rdf:type owl:NamedIndividual .
-
 
 ###  http://purl.org/coreo#Skill
 coreo:Skill rdf:type owl:NamedIndividual ,
-                     gufo:SubKind .
+                     gufo:RoleMixin .
 
 
 ###  http://purl.org/coreo#SkillType
 coreo:SkillType rdf:type owl:NamedIndividual .
-
-
-###  http://purl.org/coreo#SocialAgent
-coreo:SocialAgent rdf:type owl:NamedIndividual ,
-                           gufo:Category .
-
-
-###  http://purl.org/coreo#SubstantialType
-coreo:SubstantialType rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/coreo#TaskInput
@@ -876,242 +781,8 @@ coreo:TaskOutput rdf:type owl:NamedIndividual ,
 coreo:TaskType rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/coreo#Type
-coreo:Type rdf:type owl:NamedIndividual .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-coreo:Agent rdfs:comment "Agents are objects that perceive events and perform actions based on their intentions"@en ;
-            rdfs:label "Agent"@en .
-
-
-coreo:Artifact rdfs:comment """Human-made object produced, used, or changed in task as a result of human capabilities
-
-E.G., Web form code (produced by John)""" ;
-               rdfs:label "Artifact"@en .
-
-
-coreo:ArtifactType gufo:categorizes coreo:Artifact ;
-                   rdfs:comment """A gufo:Type whose instances are coreo:Artifact. 
-
-Instances of coreo:ArtifactType are subclasses of coreo:Artifact.
-
-Examples include \"Web Form\", \"Class Diagram\", \"Painting\", a \"Sculpture\""""@en ;
-                   rdfs:label "ArtifactType"@en .
-
-
-coreo:Attitude rdfs:comment """Attitude is a tendency to act (or feel) in a given situation (Maze, 2011) inherent to an individual, based on assumptions, values, and beliefs (Maze, 2011). In general, definitions of attitude take into account the following characteristics: (i) mental state; (ii) values (beliefs, 
-emotions); and (iii) predisposition to act or behave (ALTMANN, 2008).
-
-E.g. John' accuracy, Paul' responsability, Mary' colaboration
-
-ALTMANN, Tanya K. Attitude: a concept analysis. In: Nursing forum. Malden, USA: Blackwell Publishing Inc, 2008. p. 144-150.
-
-MAZE, John R. The concept of attitude. In: Realism and Psychology. Brill, 2011. p. 183-230."""@en ;
-               rdfs:label "Attitude"@en .
-
-
-coreo:AttitudeType rdfs:comment """A gufo:Type whose instances are coreo:Attitude. 
-
-Instances of coreo:AttitudeType are subclasses of coreo:Attitude.
-
-Examples include the coreo:HumanAttitude \"Collaboration\""""@en ;
-                   rdfs:label "AttitudeType"@en .
-
-
-coreo:CapabilityContext rdfs:label "Capability Context"@en .
-
-
-coreo:CapabilityManifestation rdfs:label "Capability Manifestation"@en .
-
-
-coreo:CapabilityOutcome rdfs:label "Capability Outcome"@en .
-
-
-coreo:CapabilityRequiringRole gufo:categorizes coreo:Person ;
-                              rdfs:label "CapabilityRequiringRole"@en .
-
-
-coreo:CompetenceContext rdfs:label "Competence Context"@en ,
-                                   "CompetenceContext"@en .
-
-
-coreo:CompetenceOutcome rdfs:label "CompetenceOutcome"@en .
-
-
-coreo:CompetenceType gufo:categorizes coreo:PersonalCompetence ;
-                     rdfs:comment """A gufo:Type whose instances are coreo:PersonalCompetence. 
-
-Instances of coreo:CompetenceType are subclasses of coreo:PersonalCompetence.
-
-Examples include the competence type of \"Software Development\""""@en ;
-                     rdfs:label "CompetenceType"@en .
-
-
-coreo:Evidence rdfs:comment """Any object (social or not) used to prove a human capability. 
-E.G.  John's graduation certification in computer science,  Mary's project participation."""@en ;
-               rdfs:label "Evidence"@en .
-
-
-coreo:Field rdfs:comment "Knowledge Area"@en ;
-            rdfs:label "Field"@en .
-
-
-coreo:HumanAspect rdfs:comment "Aspects inherent to an individual. Includes human capabilities (skills and competences), knowledge, attidutes, and other characteristics (human qualities as age, gender, etc and human traits)."@en ;
-                  rdfs:label "HumanAspect"@en .
-
-
-coreo:HumanAspectPhase gufo:categorizes coreo:HumanAspect ;
-                       rdfs:label "HumanAspectPhase"@en .
-
-
-coreo:HumanAspectType gufo:categorizes coreo:HumanAspect ;
-                      rdfs:comment """A gufo:Type whose instances are coreo:HumanAspect. 
-
-Instances of coreo:HumanAspectType are subclasses of coreo:HumanAspect.
-
-Examples include the coreo:SkillType \"Java Programming\", the coreo:CompetenceType \"Software Development\", the coreo:HumanAttitude \"Collaboration\", the coreo:HumanKnowledge \"Quantum Physics\", the coreo:HumanCharacteristic \"Age\", \"Gender\", and \"Interest\""""@en ;
-                      rdfs:label "HumanAspectType"@en .
-
-
-coreo:HumanCapability rdfs:comment "Human ability to perform some task in some situation, inherent to an individual. Includes skills and personal competences."@en ;
-                      rdfs:label "HumanCapability"@en .
-
-
-coreo:HumanCapabilityType gufo:categorizes coreo:HumanCapability ;
-                          rdfs:comment """A gufo:Type whose instances are dispositions. 
-
-Instances of coreo:HumanCapabilityType are subclasses of coreo:HumanCapability.
-
-Examples include the skill type of \"Java Programming\" and competence type of \"Software Development\""""@en ;
-                          rdfs:label "HumanCapabilityType"@en .
-
-
-coreo:HumanCharacteristic rdfs:comment "Human aspects inherent to an individual used to describe his/her profile, Includes qualities and traits"@en ;
-                          rdfs:label "HumanCharacteristic"@en .
-
-
-coreo:HumanQuality rdfs:comment "Qualities inherent to a person, e.g. age, gender, height, etc."@en ;
-                   rdfs:label "HumanQuality"@en .
-
-
-coreo:HumanTask rdfs:comment "Event performed by a person as a result of the manifestation of his/her human capabilities"@en ;
-                rdfs:label "HumanTask"@en .
-
-
-coreo:HumanTrait rdfs:comment "Traits inherent to an individual, e.g. John's introversion, Paul's interest, Mary's hobbies"@en ;
-                 rdfs:label "HumanTrait"@en .
-
-
-coreo:Knowledge rdfs:comment """Knowledge is typically associated with internal representations of facts, principles, or theories (WESTERA, 2001) by an individual. and that can be manifested through actions.
-
-E.G., Paul' quantum theory knowledge
-
-WESTERA, Wim. Competences in education: a confusion of tongues. Journal of Curriculum studies, v. 33, n. 1, p. 75-88, 2001."""@en ;
-                rdfs:label "Knowledge"@en .
-
-
-coreo:KnowledgeType rdfs:comment """A gufo:Type whose instances are coreo:Knowledge. 
-
-Instances of coreo:KnowledgeType are subclasses of coreo:Knowledge.
-
-Examples include the the coreo:KnowledgeType \"Quantum Physics\""""@en ;
-                    rdfs:label "KnowledgeType"@en .
-
-
-coreo:MomentType rdfs:comment """A gufo:Type whose instances are aspects. 
-
-Instances of AspectType are subclasses of gufo:Aspect.
-
-Examples include the aspect kind \"age\", \"knowledge\", and \"mariage\""""@en ;
-                 rdfs:label "AspectType"@en .
-
-
-coreo:Object rdfs:label "Object"@en .
-
-
-coreo:Person rdfs:comment "Physical agent that are human being"@en ;
-             rdfs:label "Person"@en .
-
-
-coreo:PersonalCompetence rdfs:comment """Competence is a human capability inherent to an individual and formed by the combination of perceptible characteristics, such as the ``well-known'' knowledge, skills, and attitudes (KSA) elements. 
-
-
-E.G. John's agile software development competence, Ronaldo's football playing competence"""@en ;
-                         rdfs:label "PersonalCompetence"@en .
-
-
-coreo:PersonalCompetenceType gufo:categorizes coreo:PersonalCompetence ;
-                             rdfs:label "PersonalCompetenceType"@en .
-
-
-coreo:Proficiency rdfs:comment "Intencity or deepness of a human capability. Can be related to level, degree, score, or other quality."@en ;
-                  rdfs:label "Proficiency"@en .
-
-
-coreo:Resource rdfs:comment """Any object used in a task by a person as manifestation of a human capability
-
-E.G. John's Integrated Development Environment (IDE)"""@en ;
-               rdfs:label "Resource"@en .
-
-
-coreo:ResourceType gufo:categorizes coreo:Resource ;
-                   rdfs:comment """A gufo:Type whose instances are coreo:Resource. 
-
-Instances of coreo:ResourceType are subclasses of coreo:Resource.
-
-Examples include \"Tool\", \"Software\", \"Hardware\""""@en ;
-                   rdfs:label "ResourceType"@en .
-
-
-coreo:Skill rdfs:comment """Skill is a human capability of an individual to perform a task (discrete unit of work) well (RODRIGUES et al, 2021), not strongly related to a context. 
-
-E.G. John' programming skill, Pelé's kick skill
-
-
-RODRIGUES, Margarida; FERNÁNDEZ-MACÍAS, Enrique; SOSTERO, Matteo. A unified conceptual framework of tasks, skills and competences. JRC Working Papers Series on Labour, Education and Technology, 2021."""@en ;
-            rdfs:label "Skill"@en .
-
-
-coreo:SkillType gufo:categorizes coreo:Skill ;
-                rdfs:comment """A gufo:Type whose instances are coreo:Skill. 
-
-Instances of coreo:SkillType are subclasses of coreo:Skill.
-
-Examples include the skill type of \"Java Programming\""""@en ;
-                rdfs:label "SkillType"@en .
-
-
-coreo:SubstantialType rdfs:comment """A gufo:Type whose instances are objects. 
-
-Instances of ObjectType are subclasses of Object.
-
-Examples include the object kinds \"Car\", \"Person\", \"Apple\""""@en ;
-                      rdfs:label "ObjectType"@en ,
-                                 "SubstantialType"@en .
-
-
-coreo:TaskInput rdfs:comment "Artifact used in a task as manifestation of a human capability"@en ;
-                rdfs:label "TaskInput"@en .
-
-
-coreo:TaskOutcome rdfs:label "Task Outcome"@en .
-
-
-coreo:TaskOutput rdfs:comment "Artifact created or changed in a task as manifestation of a human capability"@en ;
-                 rdfs:label "TaskOutput"@en .
-
-
-coreo:TaskType gufo:categorizes coreo:HumanTask ;
-               rdfs:comment """A gufo:Type whose instances are coreo:Task. 
-
-Instances of coreo:TaskType are subclasses of coreo:Task.
-
-Examples include \"Develop a Software\", \"Perform a Interview\""""@en ;
-               rdfs:label "TaskType"@en .
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
 
 
 #################################################################
@@ -1120,7 +791,6 @@ Examples include \"Develop a Software\", \"Perform a Interview\""""@en ;
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( coreo:Attitude
-                coreo:HumanCapability
                 coreo:HumanQuality
                 coreo:HumanTrait
                 coreo:Knowledge
@@ -1134,6 +804,3 @@ Examples include \"Develop a Software\", \"Perform a Interview\""""@en ;
                 coreo:KnowledgeType
               )
 ] .
-
-
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

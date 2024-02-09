@@ -1,7 +1,7 @@
 # Core-O: A Competence Reference Ontology for Professional and Learning Ecosystems
 
 ## Overview
-Core-O is an ontology designed to describe competences and human capabilities, addressing both individual and occupational levels. It encompasses competence elements such as knowledge, skills, and attitudes, and accounts for their performance, context, outcomes, and proficiency evolution. Based on Unified Foundational Ontology (UFO) and OntoUML, specifically using gUFO (gentle UFO), Core-O offers a well-founded reference for competence-related concepts.
+Core-O is an ontology designed to describe competences and human capabilities, addressing both individual and occupational levels. It encompasses competence elements such as knowledge, skills, and attitudes, and accounts for their performance, context, outcomes, and proficiency evolution. Based on Unified Foundational Ontology (UFO), two artifacts are available: an ontology conceptual model in OntoUML and, specifically using gUFO, a semantic web ontology in OWL. Core-O offers a well-founded reference for competence-related concepts.
 
 ## Repository Contents
 - **OntoUML Reference Version**: Available at [competence_ontology.vpp](https://github.com/core-o/ontology/blob/main/competence_ontology.vpp).

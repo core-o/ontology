@@ -1,2 +1,5 @@
 **/.DS_Store
 catalog*.xml
+*.vpp.vbak
+*.vpp.bak*
+*_bak.ttl
