@@ -1,0 +1,51 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Core-o
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Rodrigo
+    family-names: F. Calhau
+    email: calhau@ifes.edu.br
+    affiliation: Instituto Federal do Espírito Santo
+    orcid: 'https://orcid.org/0009-0006-6051-2165'
+  - given-names: João Paulo
+    family-names: A. Almeida
+    email: jpalmeida@inf.ufes.br
+    affiliation: Universidade Federal do Espírito Santo
+    orcid: 'https://orcid.org/0000-0002-9819-3781'
+  - given-names: Tiago
+    family-names: Prince Sales
+    email: t.princesales@utwente.nl
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-5385-5761'
+  - given-names: Giancarlo
+    family-names: Guizzardi
+    email: g.guizzardi@utwente.nl
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-3452-553X'
+repository-code: 'https://purl.org/coreo'
+url: 'https://purl.org/coreo/doc'
+repository-artifact: 'https://purl.org/coreo/git'
+abstract: >-
+  Core-O is an ontology designed to describe competences and
+  human capabilities, addressing both individual and
+  occupational levels. It encompasses competence elements
+  such as knowledge, skills, and attitudes, and accounts for
+  their performance, context, outcomes, and proficiency
+  evolution. Based on Unified Foundational Ontology (UFO),
+  two artifacts are available: an ontology conceptual model
+  in OntoUML and, specifically using gUFO, a semantic web
+  ontology in OWL. Core-O offers a well-founded reference
+  for competence-related concepts.
+keywords:
+  - competence
+  - ontology
+  - semantic web
+  - domain ontology
+  - knowledge representation
+license: CC-BY-4.0
